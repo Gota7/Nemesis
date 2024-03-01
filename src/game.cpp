@@ -1,9 +1,6 @@
 #include "game.hpp"
 
-Game::Game()
-{
-    player.body.pos = glm::vec2(50.0f, 50.0f);
-}
+Game::Game() {}
 
 void Game::Draw()
 {

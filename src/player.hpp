@@ -1,11 +1,16 @@
 #pragma once
 
-#include "accelerator.hpp"
+#include "body.hpp"
 #include "global.hpp"
+#include "stateMachine.hpp"
 
 struct Player
 {
-    Accelerator body;
+    Body body;
+    StateMachine<Player> sm;
+
+    // Make a new player.
+    Player();
 
     // Draw the player.
     void Draw();
