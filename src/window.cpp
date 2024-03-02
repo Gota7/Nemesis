@@ -27,7 +27,9 @@ void Window::Run(const WindowFunc& drawFunc, const WindowFunc& updateFunc)
         float height = GetRenderHeight();
         if (!IsWindowFullscreen() && !IsWindowMaximized() && width / height != (float)RES_WIDTH / RES_HEIGHT)
         {
+#ifdef DEBUG
             float oldHeight = height;
+#endif
             height = RES_HEIGHT * width / RES_WIDTH;
             SetWindowSize((int)width, (int)height);
             DBG_PRINT("Resized invalid size " << (int)width << "x" << (int)oldHeight << " to " << (int)width << "x" << (int)height);

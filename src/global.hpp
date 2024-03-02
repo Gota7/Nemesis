@@ -4,12 +4,9 @@
 #include <memory>
 #include <raylib.h>
 
-#define DEBUG 1
-
 #ifdef DEBUG
     #define DBG_PRINT(x) do { std::cout << x << std::endl; } while (false)
-#elif
-    #define NDEBUG 1
+#else
     #define DBG_PRINT(x) do {} while (false)
 #endif
 
