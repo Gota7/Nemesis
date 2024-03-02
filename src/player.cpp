@@ -83,7 +83,7 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
     // Jump logic.
     if (blocked & Direction::DIR_DOWN)
     {
-        if (jump)
+        if (InputPressed(InputButton::Jump))
         {
             yVel = -PLAYER_SPEED_JUMP;
             blocked &= ~Direction::DIR_DOWN;
@@ -109,7 +109,6 @@ Player::Player() : sm({
     StateMachineEntry<Player>(std::nullopt, PlayerStateWalkRunJumpUpdate, std::nullopt),
 }, ST_WALKRUNJUMP)
 {
-    body.pos.y = 500.0f;
     body.termVel = glm::vec2(PLAYER_SPEED_MAX, PLAYER_SPEED_MAX);
 }
 
@@ -122,5 +121,5 @@ void Player::Update(float dt)
 {
     sm.Execute(*this);
     body.Move(dt);
-    if (body.pos.y >= 500.0f) body.blocked |= Direction::DIR_DOWN;
+    if (body.pos.y >= 625.0f) body.blocked |= Direction::DIR_DOWN;
 }

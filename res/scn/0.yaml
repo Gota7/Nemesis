@@ -1,4 +1,12 @@
 Actors:
+  Animator:
+    Name: bg_sand
+    Time: 100
+    Lerp: false
+  Animator:
+    Name: gate_br
+    Time: 0.15
+    Lerp: false
   Player:
     X: 500
     Y: 400

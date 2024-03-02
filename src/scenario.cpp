@@ -1,9 +1,15 @@
 #include "scenario.hpp"
 
+#include "animator.hpp"
 #include "player.hpp"
 #include <yaml-cpp/yaml.h>
 
 using ScenarioLoadFunc = std::function<void(Scenario& scn, const YAML::Node& node)>;
+
+void ScenarioLoadAnimator(Scenario& scn, const YAML::Node& node)
+{
+    scn.actors.push_back(PTR_MAKE(Animator, node["Name"].as<std::string>(), node["Time"].as<float>(), node["Lerp"].as<bool>()));
+}
 
 void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 {
@@ -14,7 +20,8 @@ void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 
 std::map<std::string, ScenarioLoadFunc> ACTOR_LOAD_FUNCS =
 {
-    { "Player", ScenarioLoadPlayer }
+    { "Animator", ScenarioLoadAnimator },
+    { "Player", ScenarioLoadPlayer },
 };
 
 Scenario::Scenario(Game& game, std::size_t num) : game(game)

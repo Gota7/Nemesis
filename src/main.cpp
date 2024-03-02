@@ -18,5 +18,6 @@ int main()
     Window window;
     game = PTR_MAKE(Game);
     window.Run(Draw, Update);
+    game.release();
     return 0;
 }
