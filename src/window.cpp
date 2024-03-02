@@ -10,7 +10,7 @@
 Window::Window()
 {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Nemesis");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Complementary Nemesis");
     SetWindowMonitor(0);
     SetTargetFPS(60);
     SetWindowMinSize(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);

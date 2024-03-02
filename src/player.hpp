@@ -4,7 +4,7 @@
 #include "global.hpp"
 #include "stateMachine.hpp"
 
-struct Player
+struct Player : Actor
 {
     Body body;
     StateMachine<Player> sm;
@@ -13,9 +13,9 @@ struct Player
     Player();
 
     // Draw the player.
-    void Draw();
+    virtual void Draw() override;
 
     // Update the player.
-    void Update(float dt);
+    virtual void Update(float dt) override;
 
 };

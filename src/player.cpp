@@ -2,21 +2,25 @@
 
 #include "input.hpp"
 
-float PLAYER_SPEED_WALK = 56.0f;
-float PLAYER_SPEED_RUN = 80.0f;
+float PLAYER_SPEED_WALK = 100.0f;
+float PLAYER_SPEED_RUN = 150.0f;
 float PLAYER_SPEED_MAX = 1000.0f;
-float PLAYER_ACCEL_WALK = 15.0f;
-float PLAYER_ACCEL_JUMP_WALK = 7.0f;
-float PLAYER_DEACCEL = 1.0f;
+float PLAYER_SPEED_JUMP = 350.0f;
+float PLAYER_ACCEL_WALK = 7.0f;
+float PLAYER_ACCEL_JUMP_WALK = 3.0f;
+float PLAYER_DEACCEL = 2.0f;
+float PLAYER_DEACCEL_JUMP = 4.5f;
+float PLAYER_DEACCEL_JUMP_SLOW = 2.7f;
 
 void PlayerStateWalkRunJumpUpdate(Player& player)
 {
     float& xVel = player.body.vel.x;
-    // float& yVel = player.body.vel.y;
+    float& yVel = player.body.vel.y;
     int& blocked = player.body.blocked;
     bool left = InputDown(InputButton::Left);
     bool right = InputDown(InputButton::Right);
     bool run = InputDown(InputButton::Run);
+    bool jump = InputDown(InputButton::Jump);
     float walkAccel = (blocked & Direction::DIR_DOWN) ? PLAYER_ACCEL_WALK : PLAYER_ACCEL_JUMP_WALK;
     if (left || right)
     {
@@ -77,6 +81,22 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
     }
 
     // Jump logic.
+    if (blocked & Direction::DIR_DOWN)
+    {
+        if (jump)
+        {
+            yVel = -PLAYER_SPEED_JUMP;
+            blocked &= ~Direction::DIR_DOWN;
+        }
+        else yVel = 0.0f;
+    }
+
+    // Fall.
+    else
+    {
+        if (jump) yVel += PLAYER_DEACCEL_JUMP_SLOW;
+        else yVel += PLAYER_DEACCEL_JUMP;
+    }
 
 }
 
@@ -89,8 +109,8 @@ Player::Player() : sm({
     StateMachineEntry<Player>(std::nullopt, PlayerStateWalkRunJumpUpdate, std::nullopt),
 }, ST_WALKRUNJUMP)
 {
-    body.blocked |= Direction::DIR_DOWN;
     body.pos.y = 500.0f;
+    body.termVel = glm::vec2(PLAYER_SPEED_MAX, PLAYER_SPEED_MAX);
 }
 
 void Player::Draw()

@@ -1,11 +1,12 @@
 #pragma once
 
 #include "player.hpp"
+#include "scenario.hpp"
 
 // Main game.
 struct Game
 {
-    Player player;
+    Scenario currScenario;
 
     // Initialize.
     Game();

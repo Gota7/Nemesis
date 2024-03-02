@@ -1,13 +1,13 @@
 #include "game.hpp"
 
-Game::Game() {}
+Game::Game() : currScenario(*this, 0) {}
 
 void Game::Draw()
 {
-    player.Draw();
+    currScenario.Draw();
 }
 
 void Game::Update(float dt)
 {
-    player.Update(dt);
+    currScenario.Update(dt);
 }
