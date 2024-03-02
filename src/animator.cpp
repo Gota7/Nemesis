@@ -20,18 +20,20 @@ void Animator::Draw()
     DrawPositioned();
 }
 
-void Animator::DrawPositioned(const glm::vec2& pos, Color tint)
+void Animator::DrawPositioned(const glm::vec2& pos, Color tint, Rectangle source)
 {
+    if (source.width == -1.0f) source.width = textures[currFrame].width;
+    if (source.height == -1.0f) source.height = textures[currFrame].height;
     if (lerp)
     {
         float currAlpha = glm::clamp((totalFrameTime - frameTime) / totalFrameTime, 0.0f, 1.0f);
         unsigned char bakTint = tint.a;
         tint.a *= (1.0f - currAlpha);
-        DrawTextureV(textures[currFrame], VEC_CAST(pos), tint);
+        DrawTextureRec(textures[currFrame], source, VEC_CAST(pos), tint);
         tint.a = bakTint * currAlpha;
-        DrawTextureV(textures[prevFrame], VEC_CAST(pos), tint);
+        DrawTextureRec(textures[prevFrame], source, VEC_CAST(pos), tint);
     }
-    else DrawTextureV(textures[currFrame], VEC_CAST(pos), tint);
+    else DrawTextureRec(textures[currFrame], source, VEC_CAST(pos), tint);
 }
 
 void Animator::Update(float dt)

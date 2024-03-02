@@ -7,6 +7,12 @@ Actors:
     Name: gate_br
     Time: 0.15
     Lerp: false
+  Number:
+    X: 1130
+    Y: 50
+    Num: 0
+    Color: [ 255, 255, 255, 255 ]
   Player:
-    X: 500
-    Y: 400
+    X: 300
+    Y: 500
+    Color: [ 255, 0, 0, 255 ]

@@ -21,7 +21,7 @@ struct Animator : Actor
     virtual void Draw() override;
 
     // Draw in position.
-    void DrawPositioned(const glm::vec2& pos = glm::vec2(0.0f), Color tint = WHITE);
+    void DrawPositioned(const glm::vec2& pos = glm::vec2(0.0f), Color tint = WHITE, Rectangle source = { 0.0f, 0.0f, -1.0f, -1.0f });
 
     // Update animator.
     virtual void Update(float dt) override;

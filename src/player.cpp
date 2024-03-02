@@ -11,6 +11,8 @@ float PLAYER_ACCEL_JUMP_WALK = 3.0f;
 float PLAYER_DEACCEL = 2.0f;
 float PLAYER_DEACCEL_JUMP = 4.5f;
 float PLAYER_DEACCEL_JUMP_SLOW = 2.7f;
+float PLAYER_RAD = 50.0f;
+float PLAYER_COYOTE = 0.1f;
 
 void PlayerStateWalkRunJumpUpdate(Player& player)
 {
@@ -83,7 +85,7 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
     // Jump logic.
     if (blocked & Direction::DIR_DOWN)
     {
-        if (InputPressed(InputButton::Jump))
+        if (player.jumpTimer > 0.0f)
         {
             yVel = -PLAYER_SPEED_JUMP;
             blocked &= ~Direction::DIR_DOWN;
@@ -105,21 +107,24 @@ enum PlayerState
     ST_WALKRUNJUMP
 };
 
-Player::Player() : sm({
+Player::Player(Color color) : animator("blob", 0.15f), sm({
     StateMachineEntry<Player>(std::nullopt, PlayerStateWalkRunJumpUpdate, std::nullopt),
-}, ST_WALKRUNJUMP)
+}, ST_WALKRUNJUMP), color(color)
 {
     body.termVel = glm::vec2(PLAYER_SPEED_MAX, PLAYER_SPEED_MAX);
 }
 
 void Player::Draw()
 {
-    DrawCircleV(VEC_CAST(body.pos), 50.0f, RED);
+    animator.DrawPositioned(body.pos - glm::vec2(PLAYER_RAD, PLAYER_RAD), color);
 }
 
 void Player::Update(float dt)
 {
+    if (InputPressed(InputButton::Jump)) jumpTimer = PLAYER_COYOTE;
+    animator.Update(dt);
     sm.Execute(*this);
     body.Move(dt);
-    if (body.pos.y >= 625.0f) body.blocked |= Direction::DIR_DOWN;
+    if (body.pos.y >= 645.0f) body.blocked |= Direction::DIR_DOWN;
+    jumpTimer = glm::max(0.0f, jumpTimer - dt);
 }

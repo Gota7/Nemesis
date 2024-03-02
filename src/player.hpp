@@ -1,16 +1,19 @@
 #pragma once
 
-#include "body.hpp"
+#include "animator.hpp"
 #include "global.hpp"
 #include "stateMachine.hpp"
 
 struct Player : Actor
 {
+    Animator animator;
     Body body;
     StateMachine<Player> sm;
+    Color color;
+    float jumpTimer = 0.0f;
 
     // Make a new player.
-    Player();
+    Player(Color color);
 
     // Draw the player.
     virtual void Draw() override;

@@ -1,19 +1,50 @@
 #include "scenario.hpp"
 
 #include "animator.hpp"
+#include "numbers.hpp"
 #include "player.hpp"
 #include <yaml-cpp/yaml.h>
+
+namespace YAML
+{
+    template<>
+    struct convert<Color>
+    {
+        static bool decode(const Node& node, Color& rhs)
+        {
+            if (!node.IsSequence() || node.size() != 4) return false;
+            rhs.r = node[0].as<float>();
+            rhs.g = node[1].as<float>();
+            rhs.b = node[2].as<float>();
+            rhs.a = node[3].as<float>();
+            return true;
+        }
+    };
+}
 
 using ScenarioLoadFunc = std::function<void(Scenario& scn, const YAML::Node& node)>;
 
 void ScenarioLoadAnimator(Scenario& scn, const YAML::Node& node)
 {
-    scn.actors.push_back(PTR_MAKE(Animator, node["Name"].as<std::string>(), node["Time"].as<float>(), node["Lerp"].as<bool>()));
+    scn.actors.push_back(PTR_MAKE(Animator,
+        node["Name"].as<std::string>(),
+        node["Time"].as<float>(),
+        node["Lerp"].as<bool>()
+    ));
+}
+
+void ScenarioLoadNumber(Scenario& scn, const YAML::Node& node)
+{
+    scn.actors.push_back(PTR_MAKE(Numbers,
+        glm::vec2(node["X"].as<float>(), node["Y"].as<float>()),
+        node["Num"].as<unsigned int>(),
+        node["Color"].as<Color>()
+    ));
 }
 
 void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 {
-    PTR<Player> player = PTR_MAKE(Player);
+    PTR<Player> player = PTR_MAKE(Player, node["Color"].as<Color>());
     player->body.pos = glm::vec2(node["X"].as<float>(), node["Y"].as<float>());
     scn.actors.push_back(std::move(player));
 }
@@ -21,6 +52,7 @@ void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 std::map<std::string, ScenarioLoadFunc> ACTOR_LOAD_FUNCS =
 {
     { "Animator", ScenarioLoadAnimator },
+    { "Number", ScenarioLoadNumber },
     { "Player", ScenarioLoadPlayer },
 };
 
