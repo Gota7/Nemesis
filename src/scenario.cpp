@@ -53,7 +53,7 @@ void ScenarioLoadNumber(Scenario& scn, const YAML::Node& node)
 
 void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 {
-    PTR<Player> player = PTR_MAKE(Player, scn, node["Color"].as<Color>());
+    PTR<Player> player = PTR_MAKE(Player, node["Color"].as<Color>());
     player->body.pos = glm::vec2(node["X"].as<float>(), node["Y"].as<float>());
     scn.actors.push_back(std::move(player));
 }

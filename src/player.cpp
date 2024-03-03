@@ -1,8 +1,6 @@
 #include "player.hpp"
 
-#include "gate.hpp"
 #include "input.hpp"
-#include "scenario.hpp"
 
 #define PLAYER_SPEED_WALK 225.0f
 #define PLAYER_SPEED_RUN 275.0f
@@ -17,19 +15,8 @@
 
 enum PlayerState
 {
-    ST_INIT,
     ST_WALKRUNJUMP
 };
-
-void PlayerStateInit(Player& player)
-{
-    player.sm.currState = ST_WALKRUNJUMP;
-    for (auto& actor : player.scenario.actors)
-    {
-        Gate* gate = dynamic_cast<Gate*>(actor.get());
-        if (gate) player.gates.emplace_back(gate);
-    }
-}
 
 void PlayerStateWalkRunJumpUpdate(Player& player)
 {
@@ -119,10 +106,9 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
 
 }
 
-Player::Player(Scenario& scenario, Color color) : scenario(scenario), animator("blob", 0.15f), sm({
-    StateMachineEntry<Player>(std::nullopt, PlayerStateInit, std::nullopt),
+Player::Player(Color color) : animator("blob", 0.15f), sm({
     StateMachineEntry<Player>(std::nullopt, PlayerStateWalkRunJumpUpdate, std::nullopt),
-}, ST_INIT), color(color)
+}, ST_WALKRUNJUMP), color(color)
 {
     body.termVel = glm::vec2(PLAYER_SPEED_MAX, PLAYER_SPEED_MAX);
 }
@@ -147,11 +133,7 @@ void Player::Update(float dt)
     if (InputPressed(InputButton::Jump)) jumpTimer = PLAYER_COYOTE;
     animator.Update(dt);
     sm.Execute(*this);
-    // glm::vec2 prevPos = body.pos;
     body.Move(dt);
     body.blocked = Direction::DIR_NONE;
-    // for (auto gate : gates) gate->CorrectBody(body, prevPos, PLAYER_RAD);
-    // body.MovePedantic<Player>(dt, PlayerColCheck, *this);
-    // if (body.pos.y >= 645.0f) body.blocked |= Direction::DIR_DOWN;
     jumpTimer = glm::max(0.0f, jumpTimer - dt);
 }
