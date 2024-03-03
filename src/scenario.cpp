@@ -1,6 +1,7 @@
 #include "scenario.hpp"
 
 #include "animator.hpp"
+#include "gate.hpp"
 #include "numbers.hpp"
 #include "player.hpp"
 #include <yaml-cpp/yaml.h>
@@ -33,6 +34,14 @@ void ScenarioLoadAnimator(Scenario& scn, const YAML::Node& node)
     ));
 }
 
+void ScenarioLoadGate(Scenario& scn, const YAML::Node& node)
+{
+    scn.actors.push_back(PTR_MAKE(Gate,
+        scn,
+        node["Name"].as<std::string>()
+    ));
+}
+
 void ScenarioLoadNumber(Scenario& scn, const YAML::Node& node)
 {
     scn.actors.push_back(PTR_MAKE(Numbers,
@@ -44,7 +53,7 @@ void ScenarioLoadNumber(Scenario& scn, const YAML::Node& node)
 
 void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 {
-    PTR<Player> player = PTR_MAKE(Player, node["Color"].as<Color>());
+    PTR<Player> player = PTR_MAKE(Player, scn, node["Color"].as<Color>());
     player->body.pos = glm::vec2(node["X"].as<float>(), node["Y"].as<float>());
     scn.actors.push_back(std::move(player));
 }
@@ -52,6 +61,7 @@ void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 std::map<std::string, ScenarioLoadFunc> ACTOR_LOAD_FUNCS =
 {
     { "Animator", ScenarioLoadAnimator },
+    { "Gate", ScenarioLoadGate },
     { "Number", ScenarioLoadNumber },
     { "Player", ScenarioLoadPlayer },
 };

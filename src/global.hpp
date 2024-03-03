@@ -13,3 +13,6 @@
 #define PTR std::unique_ptr
 #define PTR_MAKE(T, x...) std::make_unique<T>(x)
 #define VEC_CAST(vec) *(Vector2*)&vec
+
+#define RES_WIDTH 1280
+#define RES_HEIGHT 720

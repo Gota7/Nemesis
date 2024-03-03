@@ -4,12 +4,13 @@
 
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 576
-#define RES_WIDTH 1280
-#define RES_HEIGHT 720
 
 Window::Window()
 {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+#ifndef DEBUG
+    SetExitKey(0);
+#endif
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Complementary Nemesis");
     SetWindowMonitor(0);
     SetTargetFPS(60);

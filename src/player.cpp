@@ -1,18 +1,35 @@
 #include "player.hpp"
 
+#include "gate.hpp"
 #include "input.hpp"
+#include "scenario.hpp"
 
-float PLAYER_SPEED_WALK = 225.0f;
-float PLAYER_SPEED_RUN = 275.0f;
-float PLAYER_SPEED_MAX = 1000.0f;
-float PLAYER_SPEED_JUMP = 600.0f;
-float PLAYER_ACCEL_WALK = 11.0f;
-float PLAYER_ACCEL_JUMP_WALK = 6.0f;
-float PLAYER_DEACCEL = 5.0f;
-float PLAYER_DEACCEL_JUMP = 9.5f;
-float PLAYER_DEACCEL_JUMP_SLOW = 7.7f;
-float PLAYER_RAD = 50.0f;
-float PLAYER_COYOTE = 0.1f;
+#define PLAYER_SPEED_WALK 225.0f
+#define PLAYER_SPEED_RUN 275.0f
+#define PLAYER_SPEED_MAX 1000.0f
+#define PLAYER_SPEED_JUMP 600.0f
+#define PLAYER_ACCEL_WALK 11.0f
+#define PLAYER_ACCEL_JUMP_WALK 6.0f
+#define PLAYER_DEACCEL 5.0f
+#define PLAYER_DEACCEL_JUMP 9.5f
+#define PLAYER_DEACCEL_JUMP_SLOW 7.7f
+#define PLAYER_COYOTE 0.1f
+
+enum PlayerState
+{
+    ST_INIT,
+    ST_WALKRUNJUMP
+};
+
+void PlayerStateInit(Player& player)
+{
+    player.sm.currState = ST_WALKRUNJUMP;
+    for (auto& actor : player.scenario.actors)
+    {
+        Gate* gate = dynamic_cast<Gate*>(actor.get());
+        if (gate) player.gates.emplace_back(gate);
+    }
+}
 
 void PlayerStateWalkRunJumpUpdate(Player& player)
 {
@@ -102,14 +119,10 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
 
 }
 
-enum PlayerState
-{
-    ST_WALKRUNJUMP
-};
-
-Player::Player(Color color) : animator("blob", 0.15f), sm({
+Player::Player(Scenario& scenario, Color color) : scenario(scenario), animator("blob", 0.15f), sm({
+    StateMachineEntry<Player>(std::nullopt, PlayerStateInit, std::nullopt),
     StateMachineEntry<Player>(std::nullopt, PlayerStateWalkRunJumpUpdate, std::nullopt),
-}, ST_WALKRUNJUMP), color(color)
+}, ST_INIT), color(color)
 {
     body.termVel = glm::vec2(PLAYER_SPEED_MAX, PLAYER_SPEED_MAX);
 }
@@ -119,12 +132,26 @@ void Player::Draw()
     animator.DrawPositioned(body.pos - glm::vec2(PLAYER_RAD, PLAYER_RAD), color);
 }
 
+// void PlayerColCheck(Player& player, const glm::vec2& pos, int)
+// {
+//     for (auto gate : player.gates)
+//     {
+//         // if (gate->Intersects(pos, PLAYER_RAD)) return true;
+//         gate->
+//     }
+//     // return false;
+// }
+
 void Player::Update(float dt)
 {
     if (InputPressed(InputButton::Jump)) jumpTimer = PLAYER_COYOTE;
     animator.Update(dt);
     sm.Execute(*this);
+    // glm::vec2 prevPos = body.pos;
     body.Move(dt);
-    if (body.pos.y >= 645.0f) body.blocked |= Direction::DIR_DOWN;
+    body.blocked = Direction::DIR_NONE;
+    // for (auto gate : gates) gate->CorrectBody(body, prevPos, PLAYER_RAD);
+    // body.MovePedantic<Player>(dt, PlayerColCheck, *this);
+    // if (body.pos.y >= 645.0f) body.blocked |= Direction::DIR_DOWN;
     jumpTimer = glm::max(0.0f, jumpTimer - dt);
 }
