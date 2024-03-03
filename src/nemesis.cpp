@@ -1,9 +1,10 @@
 #include "nemesis.hpp"
 
+#include "game.hpp"
 #include "player.hpp"
 #include "scenario.hpp"
 
-Nemesis::Nemesis(Scenario& scenario, const glm::vec2& pos, const glm::vec2& axis, float delay) : axis(axis)
+Nemesis::Nemesis(Scenario& scenario, const glm::vec2& pos, const glm::vec2& axis, float delay, Color color) : animator(scenario.game.holderTex, "nemesis", FRAME_TIME_DEFAULT), axis(glm::normalize(axis)), color(color)
 {
     queueSize = (std::size_t)(delay * FPS) + 1;
     posQueue = PTR_MAKE(glm::vec2[], queueSize);
@@ -22,8 +23,7 @@ Nemesis::Nemesis(Scenario& scenario, const glm::vec2& pos, const glm::vec2& axis
 
 void Nemesis::Draw()
 {
-    glm::vec2 pos = body.pos - glm::vec2(PLAYER_RAD, PLAYER_RAD);
-    DrawRectangleV(VEC_CAST(pos), { PLAYER_RAD * 2.0f, PLAYER_RAD * 2.0f }, GREEN);
+    animator.DrawPositioned(body.pos - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) / 2.0f, color);
 }
 
 void Nemesis::Update(float dt)

@@ -20,7 +20,7 @@ std::array<glm::vec2, 10> NUMBERS_X_OFF_WIDTH =
     glm::vec2(176, 65),
 };
 
-Numbers::Numbers(AssetHolder<Tex>& holderTex, const glm::vec2& pos, unsigned int num, Color color) : animator(holderTex, "numbers", 0.15f), pos(pos), num(num), color(color) {}
+Numbers::Numbers(AssetHolder<Tex>& holderTex, const glm::vec2& pos, unsigned int num, Color color) : animator(holderTex, "numbers", FRAME_TIME_DEFAULT), pos(pos), num(num), color(color) {}
 
 void Numbers::Draw()
 {

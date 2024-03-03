@@ -3,6 +3,7 @@
 #include "animator.hpp"
 #include "game.hpp"
 #include "gate.hpp"
+#include "mirror.hpp"
 #include "nemesis.hpp"
 #include "numbers.hpp"
 #include "player.hpp"
@@ -56,14 +57,24 @@ void ScenarioLoadGate(Scenario& scn, const YAML::Node& node)
     ));
 }
 
+void ScenarioLoadMirror(Scenario& scn, const YAML::Node& node)
+{
+    scn.actors.push_back(PTR_MAKE(Mirror,
+        scn.game.holderTex,
+        glm::vec2(node["X"].as<float>(), node["Y"].as<float>()),
+        node["Dir"].as<glm::vec2>(),
+        node["Color"].as<Color>()
+    ));
+}
+
 void ScenarioLoadNemesis(Scenario& scn, const YAML::Node& node)
 {
     scn.actors.push_back(PTR_MAKE(Nemesis,
         scn,
         glm::vec2(node["X"].as<float>(), node["Y"].as<float>()),
         node["Axis"].as<glm::vec2>(),
-        node["Delay"].as<float>()
-        // node["Color"].as<Color>()
+        node["Delay"].as<float>(),
+        node["Color"].as<Color>()
     ));
 }
 
@@ -90,6 +101,7 @@ std::map<std::string, ScenarioLoadFunc> ACTOR_LOAD_FUNCS =
 {
     { "Animator", ScenarioLoadAnimator },
     { "Gate", ScenarioLoadGate },
+    { "Mirror", ScenarioLoadMirror },
     { "Nemesis", ScenarioLoadNemesis },
     { "Number", ScenarioLoadNumber },
     { "Player", ScenarioLoadPlayer },

@@ -1,8 +1,14 @@
 #include "game.hpp"
 
-#define START_SCENARIO 1
+#include <cstdlib>
+#include <ctime>
 
-Game::Game() : currScenario(PTR_MAKE(Scenario, *this, START_SCENARIO)), currScenarioNum(START_SCENARIO) {}
+#define START_SCENARIO 0
+
+Game::Game() : currScenario(PTR_MAKE(Scenario, *this, START_SCENARIO)), currScenarioNum(START_SCENARIO)
+{
+    srand(time(NULL));
+}
 
 void Game::Draw()
 {

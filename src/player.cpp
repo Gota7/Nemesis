@@ -5,7 +5,7 @@
 #include "scenario.hpp"
 
 #define PLAYER_SPEED_WALK 225.0f
-#define PLAYER_SPEED_RUN 275.0f
+#define PLAYER_SPEED_RUN 325.0f
 #define PLAYER_SPEED_MAX 1000.0f
 #define PLAYER_SPEED_JUMP 600.0f
 #define PLAYER_ACCEL_WALK 660.0f
@@ -110,7 +110,7 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
 
 }
 
-Player::Player(Scenario& scenario, const glm::vec2& pos, Color color) : scenario(scenario), animator(scenario.game.holderTex, "blob", 0.15f), sm({
+Player::Player(Scenario& scenario, const glm::vec2& pos, Color color) : scenario(scenario), animator(scenario.game.holderTex, "blob", FRAME_TIME_DEFAULT), sm({
     StateMachineEntry<Player>(std::nullopt, PlayerStateWalkRunJumpUpdate, std::nullopt),
 }, ST_WALKRUNJUMP), color(color)
 {
@@ -120,7 +120,7 @@ Player::Player(Scenario& scenario, const glm::vec2& pos, Color color) : scenario
 
 void Player::Draw()
 {
-    animator.DrawPositioned(body.pos - glm::vec2(PLAYER_RAD, PLAYER_RAD), color);
+    animator.DrawPositioned(body.pos - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) / 2.0f, color);
 }
 
 // void PlayerColCheck(Player& player, const glm::vec2& pos, int)

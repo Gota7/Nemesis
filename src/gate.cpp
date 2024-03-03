@@ -13,7 +13,7 @@
 
 #define GATE_BR_HEIGHT 525.0f
 
-Gate::Gate(Scenario& scenario, const std::string& type) : animator(scenario.game.holderTex, type, 0.15f)
+Gate::Gate(Scenario& scenario, const std::string& type) : animator(scenario.game.holderTex, type, FRAME_TIME_DEFAULT)
 {
     if (type == "gate_br")
     {

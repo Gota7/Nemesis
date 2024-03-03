@@ -1,8 +1,13 @@
 Actors:
   Animator:
-    Name: bg_sand
+    Name: bg_sea
     Time: 100
     Lerp: false
+  Mirror:
+    X: 640
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
   Gate:
     Name: gate_br
   Number:
@@ -15,7 +20,8 @@ Actors:
     Y: 500
     Color: [ 255, 0, 0, 255 ]
   Nemesis:
-    X: 1100
+    X: 1080
     Y: 500
     Axis: [ 1, 0 ]
     Delay: 0.5
+    Color: [ 0, 255, 0, 255 ]
