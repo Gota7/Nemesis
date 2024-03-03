@@ -1,13 +1,33 @@
 #pragma once
 
+#include "assetHolder.hpp"
 #include "body.hpp"
 #include "global.hpp"
 #include <vector>
 
+// Texture wrapper.
+struct Tex
+{
+    Texture2D tex;
+
+    // Make a texture.
+    Tex(const std::string& path)
+    {
+        tex = LoadTexture(path.c_str());
+    }
+
+    // DESTROY.
+    ~Tex()
+    {
+        UnloadTexture(tex);
+    }
+
+};
+
 // For animating the scene.
 struct Animator : Actor
 {
-    std::vector<Texture2D> textures;
+    std::vector<SHARED<Tex>> textures;
     float frameTime = 0.0f;
     float totalFrameTime;
     std::size_t currFrame = 0;
@@ -15,7 +35,7 @@ struct Animator : Actor
     bool lerp;
 
     // Create a new animator.
-    Animator(const std::string& animName, float totalFrameTime, bool lerp = false);
+    Animator(AssetHolder<Tex>& holderTex, const std::string& animName, float totalFrameTime, bool lerp = false);
 
     // Draw animator.
     virtual void Draw() override;
@@ -27,6 +47,6 @@ struct Animator : Actor
     virtual void Update(float dt) override;
 
     // DESTROY.
-    virtual ~Animator() override;
+    virtual ~Animator() override {}
 
 };

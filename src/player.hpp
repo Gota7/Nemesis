@@ -6,17 +6,22 @@
 
 #define PLAYER_RAD 50.0f
 
+// Forward declare.
+struct Scenario;
+
 // Main player you can move.
 struct Player : Actor
 {
+    Scenario& scenario;
     Animator animator;
     Body body;
     StateMachine<Player> sm;
     Color color;
     float jumpTimer = 0.0f;
+    float dt;
 
     // Make a new player.
-    Player(Color color);
+    Player(Scenario& scenario, const glm::vec2& pos, Color color);
 
     // Draw the player.
     virtual void Draw() override;

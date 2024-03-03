@@ -8,12 +8,12 @@
 Window::Window()
 {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-#ifndef DEBUG
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Complementary Nemesis");
+#ifdef NDEBUG
     SetExitKey(0);
 #endif
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Complementary Nemesis");
     SetWindowMonitor(0);
-    SetTargetFPS(60);
+    SetTargetFPS(FPS);
     SetWindowMinSize(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
     tex = LoadRenderTexture(RES_WIDTH, RES_HEIGHT);
 }

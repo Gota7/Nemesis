@@ -1,7 +1,9 @@
 #include "scenario.hpp"
 
 #include "animator.hpp"
+#include "game.hpp"
 #include "gate.hpp"
+#include "nemesis.hpp"
 #include "numbers.hpp"
 #include "player.hpp"
 #include <yaml-cpp/yaml.h>
@@ -21,6 +23,17 @@ namespace YAML
             return true;
         }
     };
+    template<>
+    struct convert<glm::vec2>
+    {
+        static bool decode(const Node& node, glm::vec2& rhs)
+        {
+            if (!node.IsSequence() || node.size() != 2) return false;
+            rhs.x = node[0].as<float>();
+            rhs.y = node[1].as<float>();
+            return true;
+        }
+    };
 }
 
 using ScenarioLoadFunc = std::function<void(Scenario& scn, const YAML::Node& node)>;
@@ -28,6 +41,7 @@ using ScenarioLoadFunc = std::function<void(Scenario& scn, const YAML::Node& nod
 void ScenarioLoadAnimator(Scenario& scn, const YAML::Node& node)
 {
     scn.actors.push_back(PTR_MAKE(Animator,
+        scn.game.holderTex,
         node["Name"].as<std::string>(),
         node["Time"].as<float>(),
         node["Lerp"].as<bool>()
@@ -42,9 +56,21 @@ void ScenarioLoadGate(Scenario& scn, const YAML::Node& node)
     ));
 }
 
+void ScenarioLoadNemesis(Scenario& scn, const YAML::Node& node)
+{
+    scn.actors.push_back(PTR_MAKE(Nemesis,
+        scn,
+        glm::vec2(node["X"].as<float>(), node["Y"].as<float>()),
+        node["Axis"].as<glm::vec2>(),
+        node["Delay"].as<float>()
+        // node["Color"].as<Color>()
+    ));
+}
+
 void ScenarioLoadNumber(Scenario& scn, const YAML::Node& node)
 {
     scn.actors.push_back(PTR_MAKE(Numbers,
+        scn.game.holderTex,
         glm::vec2(node["X"].as<float>(), node["Y"].as<float>()),
         node["Num"].as<unsigned int>(),
         node["Color"].as<Color>()
@@ -53,15 +79,18 @@ void ScenarioLoadNumber(Scenario& scn, const YAML::Node& node)
 
 void ScenarioLoadPlayer(Scenario& scn, const YAML::Node& node)
 {
-    PTR<Player> player = PTR_MAKE(Player, node["Color"].as<Color>());
-    player->body.pos = glm::vec2(node["X"].as<float>(), node["Y"].as<float>());
-    scn.actors.push_back(std::move(player));
+    scn.actors.push_back(PTR_MAKE(Player,
+        scn,
+        glm::vec2(node["X"].as<float>(), node["Y"].as<float>()),
+        node["Color"].as<Color>()
+    ));
 }
 
 std::map<std::string, ScenarioLoadFunc> ACTOR_LOAD_FUNCS =
 {
     { "Animator", ScenarioLoadAnimator },
     { "Gate", ScenarioLoadGate },
+    { "Nemesis", ScenarioLoadNemesis },
     { "Number", ScenarioLoadNumber },
     { "Player", ScenarioLoadPlayer },
 };

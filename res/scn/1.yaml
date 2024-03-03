@@ -1,0 +1,21 @@
+Actors:
+  Animator:
+    Name: bg_sand
+    Time: 100
+    Lerp: false
+  Gate:
+    Name: gate_br
+  Number:
+    X: 1130
+    Y: 50
+    Num: 1
+    Color: [ 255, 255, 255, 255 ]
+  Player:
+    X: 200
+    Y: 500
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    X: 1100
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.5

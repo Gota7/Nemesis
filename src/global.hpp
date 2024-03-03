@@ -16,3 +16,4 @@
 
 #define RES_WIDTH 1280
 #define RES_HEIGHT 720
+#define FPS 60

@@ -1,16 +1,18 @@
 #include "player.hpp"
 
+#include "game.hpp"
 #include "input.hpp"
+#include "scenario.hpp"
 
 #define PLAYER_SPEED_WALK 225.0f
 #define PLAYER_SPEED_RUN 275.0f
 #define PLAYER_SPEED_MAX 1000.0f
 #define PLAYER_SPEED_JUMP 600.0f
-#define PLAYER_ACCEL_WALK 11.0f
-#define PLAYER_ACCEL_JUMP_WALK 6.0f
-#define PLAYER_DEACCEL 5.0f
-#define PLAYER_DEACCEL_JUMP 9.5f
-#define PLAYER_DEACCEL_JUMP_SLOW 7.7f
+#define PLAYER_ACCEL_WALK 660.0f
+#define PLAYER_ACCEL_JUMP_WALK 360.0f
+#define PLAYER_DEACCEL 300.0f
+#define PLAYER_DEACCEL_JUMP 570.0f
+#define PLAYER_DEACCEL_JUMP_SLOW 462.0f
 #define PLAYER_COYOTE 0.1f
 
 enum PlayerState
@@ -28,6 +30,8 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
     bool run = InputDown(InputButton::Run);
     bool jump = InputDown(InputButton::Jump);
     float walkAccel = (blocked & Direction::DIR_DOWN) ? PLAYER_ACCEL_WALK : PLAYER_ACCEL_JUMP_WALK;
+    walkAccel *= player.dt;
+    float deaccel = PLAYER_DEACCEL * player.dt;
     if (left || right)
     {
         float targetSpeed = run ? PLAYER_SPEED_RUN : PLAYER_SPEED_WALK;
@@ -42,7 +46,7 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
             }
             else if (xVel > targetSpeed)
             {
-                xVel -= PLAYER_DEACCEL;
+                xVel -= deaccel;
                 if (xVel < targetSpeed) xVel = targetSpeed;
             }
         }
@@ -57,7 +61,7 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
             }
             else if (xVel < -targetSpeed)
             {
-                xVel += PLAYER_DEACCEL;
+                xVel += deaccel;
                 if (xVel > -targetSpeed) xVel = -targetSpeed;
             }
         }
@@ -72,7 +76,7 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
         if (xVel > 0.0f)
         {
             if ((blocked & Direction::DIR_RIGHT) && right) xVel = 0.0f;
-            else if (xVel > PLAYER_DEACCEL) xVel -= PLAYER_DEACCEL;
+            else if (xVel > deaccel) xVel -= deaccel;
             else xVel = 0.0f;
         }
 
@@ -80,7 +84,7 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
         else if (xVel < 0.0f)
         {
             if ((blocked & Direction::DIR_LEFT) && left) xVel = 0.0f;
-            else if (xVel < -PLAYER_DEACCEL) xVel += PLAYER_DEACCEL;
+            else if (xVel < -deaccel) xVel += deaccel;
             else xVel = 0.0f;
         }
 
@@ -100,16 +104,17 @@ void PlayerStateWalkRunJumpUpdate(Player& player)
     // Fall.
     else
     {
-        if (jump) yVel += PLAYER_DEACCEL_JUMP_SLOW;
-        else yVel += PLAYER_DEACCEL_JUMP;
+        if (jump) yVel += PLAYER_DEACCEL_JUMP_SLOW * player.dt;
+        else yVel += PLAYER_DEACCEL_JUMP * player.dt;
     }
 
 }
 
-Player::Player(Color color) : animator("blob", 0.15f), sm({
+Player::Player(Scenario& scenario, const glm::vec2& pos, Color color) : scenario(scenario), animator(scenario.game.holderTex, "blob", 0.15f), sm({
     StateMachineEntry<Player>(std::nullopt, PlayerStateWalkRunJumpUpdate, std::nullopt),
 }, ST_WALKRUNJUMP), color(color)
 {
+    body.pos = body.prevPos = pos;
     body.termVel = glm::vec2(PLAYER_SPEED_MAX, PLAYER_SPEED_MAX);
 }
 
@@ -130,10 +135,13 @@ void Player::Draw()
 
 void Player::Update(float dt)
 {
+    this->dt = dt;
     if (InputPressed(InputButton::Jump)) jumpTimer = PLAYER_COYOTE;
     animator.Update(dt);
     sm.Execute(*this);
     body.Move(dt);
     body.blocked = Direction::DIR_NONE;
     jumpTimer = glm::max(0.0f, jumpTimer - dt);
+    if (body.pos.x < PLAYER_RAD || body.pos.y < PLAYER_RAD || body.pos.x > RES_WIDTH + PLAYER_RAD || body.pos.y > RES_HEIGHT + PLAYER_RAD) scenario.game.Advance();
+    else if (body.flags & Flags::FLAGS_SHALL_DIE) scenario.game.Reload();
 }
