@@ -9,9 +9,16 @@
 struct Game
 {
     AssetHolder<Tex> holderTex;
+    Animator logo;
     PTR<Scenario> currScenario;
     std::size_t currScenarioNum;
     std::optional<std::size_t> nextScenarioNum;
+    float origLogoTimer;
+#ifdef DEBUG
+    float logoTimer = 0.0f;
+#else
+    float logoTimer = 3.0f;
+#endif
 
     // Initialize.
     Game();

@@ -18,7 +18,7 @@ void WallApply(Wall& wall, Body& body, float rad)
         pos.y - rad < wall.pos &&
         pos.x + rad > wall.leftTopLimit &&
         pos.x - rad < wall.rightBottomLimit &&
-        prevPos.x > wall.pos + rad - WALL_THICKNESS
+        prevPos.y > wall.pos + rad - WALL_THICKNESS
     )
     {
         pos.y = wall.pos + rad;
