@@ -9,7 +9,7 @@
 Game::Game() : holderTex(), currScenario(PTR_MAKE(Scenario, *this, START_SCENARIO)), currScenarioNum(START_SCENARIO)
 {
     srand(time(NULL));
-#ifdef NDEBUG
+#ifdef DEBUG
     currScene = PTR_MAKE(Logo, *this, holderTex);
 #endif
 }

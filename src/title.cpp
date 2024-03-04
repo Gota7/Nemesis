@@ -72,14 +72,15 @@ void Title::Update(float dt)
             {
                 opt = TitleOption::TITLE_OPT_PLAY;
             }
-            if (mouseX >= levelSelectPos && mouseX < exitPos)
+            else if (mouseX >= levelSelectPos && mouseX < exitPos)
             {
                 opt = TitleOption::TITLE_OPT_LEVEL_SELECT;
             }
-            if (mouseX >= exitPos && mouseX < exitPos + TITLE_UI_EXIT_WIDTH)
+            else if (mouseX >= exitPos && mouseX < exitPos + TITLE_UI_EXIT_WIDTH)
             {
                 opt = TitleOption::TITLE_OPT_EXIT;
             }
+            else opt = TitleOption::TITLE_OPT_NONE;
         } else opt = TitleOption::TITLE_OPT_NONE;
     }
     prevMouseX = mouseX;
