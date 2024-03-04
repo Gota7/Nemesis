@@ -4,21 +4,16 @@
 #include "assetHolder.hpp"
 #include "player.hpp"
 #include "scenario.hpp"
+#include "scene.hpp"
 
 // Main game.
 struct Game
 {
     AssetHolder<Tex> holderTex;
-    Animator logo;
+    PTR<Scene> currScene = nullptr;
     PTR<Scenario> currScenario;
     std::size_t currScenarioNum;
     std::optional<std::size_t> nextScenarioNum;
-    float origLogoTimer;
-#ifdef DEBUG
-    float logoTimer = 0.0f;
-#else
-    float logoTimer = 3.0f;
-#endif
 
     // Initialize.
     Game();

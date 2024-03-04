@@ -11,7 +11,7 @@ enum class InputButton
     Run
 };
 
-std::map<InputButton, int> KEYMAP =
+inline std::map<InputButton, int> KEYMAP =
 {
     { InputButton::Left, KEY_LEFT },
     { InputButton::Right, KEY_RIGHT },
@@ -37,4 +37,14 @@ inline bool InputPressed(InputButton button)
 inline bool InputReleased(InputButton button)
 {
     return IsKeyReleased(KEYMAP[button]);
+}
+
+inline float MouseX()
+{
+    return GetMouseX() * ((float)RES_WIDTH / GetScreenWidth());
+}
+
+inline float MouseY()
+{
+    return GetMouseY() * ((float)RES_HEIGHT / GetScreenHeight());
 }
