@@ -1,5 +1,6 @@
 # Complementary Nemesis
 Submission for [Acerola Jam 0](https://itch.io/jam/acerola-jam-0).
+You can just play it [here](https://gota7.github.io/Nemesis/) in your browser.
 
 ## Windows Build Instructions
 1. Install docker on a linux-based distro.
