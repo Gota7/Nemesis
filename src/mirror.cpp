@@ -1,6 +1,6 @@
 #include "mirror.hpp"
 
-#include <cstdlib>
+#include "random.hpp"
 
 Mirror::Mirror(AssetHolder<Tex>& holderTex, const glm::vec2& startPos, const glm::vec2& dir, Color color) : animator(holderTex, "mirror", FRAME_TIME_DEFAULT), color(color)
 {
@@ -13,7 +13,7 @@ Mirror::Mirror(AssetHolder<Tex>& holderTex, const glm::vec2& startPos, const glm
     std::size_t numTextures = animator.textures.size();
     while (currPos.x >= min && currPos.x < RES_WIDTH && currPos.y >= 0.0f && currPos.y < RES_HEIGHT)
     {
-        segments.emplace_back(currPos, rand() % numTextures);
+        segments.emplace_back(currPos, RandomNum(0, numTextures - 1));
         currPos += n * advance;
     }
 }

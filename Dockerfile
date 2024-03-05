@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     clang \
     cmake \
+    emscripten \
     gcc-mingw-w64 \
     g++-mingw-w64 \
     git \

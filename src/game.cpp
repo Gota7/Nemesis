@@ -1,15 +1,12 @@
 #include "game.hpp"
 
 #include "logo.hpp"
-#include <cstdlib>
-#include <ctime>
 
 #define START_SCENARIO 0
 
 Game::Game() : holderTex(), currScenario(PTR_MAKE(Scenario, *this, START_SCENARIO)), currScenarioNum(START_SCENARIO)
 {
-    srand(time(NULL));
-#ifdef DEBUG
+#ifdef NDEBUG
     currScene = PTR_MAKE(Logo, *this, holderTex);
 #endif
 }

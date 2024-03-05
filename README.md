@@ -9,6 +9,9 @@ Submission for [Acerola Jam 0](https://itch.io/jam/acerola-jam-0).
 ## Linux Build Instructions
 Same as above, just run `buildLinux.sh` instead.
 
+## Web Build Instructions
+Do I really have to say?
+
 ## Debug Build Instructions
 1. Install `cmake`, `build-essential`, and `raylib`.
 2. Run `run.sh`.

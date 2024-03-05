@@ -8,7 +8,8 @@ enum class InputButton
     Left,
     Right,
     Jump,
-    Run
+    Run,
+    Mouse
 };
 
 inline std::map<InputButton, int> KEYMAP =
@@ -17,26 +18,40 @@ inline std::map<InputButton, int> KEYMAP =
     { InputButton::Right, KEY_RIGHT },
     { InputButton::Jump, KEY_Z },
     { InputButton::Run, KEY_X },
+    { InputButton::Mouse, MOUSE_LEFT_BUTTON },
 };
+
+// Have to make this bc web is stupid and doesn't work I hate you.
+inline std::map<InputButton, bool> BUTTON_WAS_DOWN;
 
 inline bool InputDown(InputButton button)
 {
-    return IsKeyDown(KEYMAP[button]);
+    if (button == InputButton::Mouse) return IsMouseButtonDown(KEYMAP[button]);
+    else return IsKeyDown(KEYMAP[button]);
 }
 
 inline bool InputUp(InputButton button)
 {
-    return IsKeyUp(KEYMAP[button]);
+    if (button == InputButton::Mouse) return IsMouseButtonUp(KEYMAP[button]);
+    else return IsKeyUp(KEYMAP[button]);
 }
 
 inline bool InputPressed(InputButton button)
 {
-    return IsKeyPressed(KEYMAP[button]);
+    return InputDown(button) && !BUTTON_WAS_DOWN[button];
 }
 
 inline bool InputReleased(InputButton button)
 {
-    return IsKeyReleased(KEYMAP[button]);
+    return InputUp(button) && BUTTON_WAS_DOWN[button];
+}
+
+inline void InputUpdate()
+{
+    for (auto& entry : KEYMAP)
+    {
+        BUTTON_WAS_DOWN[entry.first] = InputDown(entry.first);
+    }
 }
 
 inline float MouseX()

@@ -87,7 +87,7 @@ void Title::Update(float dt)
     prevMouseY = mouseY;
 
     // Handle select.
-    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) || InputPressed(InputButton::Jump))
+    if (InputPressed(InputButton::Mouse) || InputPressed(InputButton::Jump))
     {
         switch (opt)
         {
