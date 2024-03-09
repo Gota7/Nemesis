@@ -2,7 +2,7 @@
 
 #include "logo.hpp"
 
-#define START_SCENARIO 0
+#define START_SCENARIO 3
 
 Game::Game() : holderTex(), currScenario(PTR_MAKE(Scenario, *this, START_SCENARIO)), currScenarioNum(START_SCENARIO)
 {

@@ -1,25 +1,39 @@
 #pragma once
 
 #include "animator.hpp"
+#include "nemesis.hpp"
+#include "numbers.hpp"
+#include "wall.hpp"
+#include <optional>
 
-// Switch wall.
-struct SwitchWall
-{
-    float pos;
-    float leftTopLimit;
-    float rightBottomLimit;
-    int direction;
-
-    // Make a new switch wall.
-    SwitchWall(float pos, float leftTopLimit, float rightBottomLimit, int direction) : pos(pos), leftTopLimit(leftTopLimit), rightBottomLimit(rightBottomLimit), direction(direction) {}
-
-};
+// Forward declare.
+struct Scenario;
 
 // Switch that can create walls.
-struct Switch
+struct Switch : Actor
 {
+    Scenario& scenario;
+    Animator animator;
+    Numbers numbers;
+    PTR<Animator> wallsAnim;
+    std::vector<PTR<Wall>> walls;
+    std::vector<std::pair<NemesisType, Color>> nemesisTypes;
+    std::vector<Body*> playerBodies;
+    glm::vec2 pos;
+    glm::vec2 hitbox;
+    float timer;
+    float currTime = 0.0f;
+    Color color;
+    bool flipWall;
+    bool active = false;
 
-    // Make a switch.
-    // Switch(AssetHolder<Tex>& holderTex, const std::string& switchPos, );
+    // Make a new switch.
+    Switch(Scenario& scenario, std::vector<PTR<Wall>>&& walls, const std::vector<std::pair<NemesisType, Color>>& nemesisTypes, const glm::vec2& pos, const std::optional<std::string>& wallsAnimName, float timer, bool flipWall, Color color);
+
+    // Draw switch.
+    virtual void Draw() override;
+
+    // Update switch.
+    virtual void Update(float dt) override;
 
 };
