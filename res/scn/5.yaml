@@ -1,0 +1,31 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Mirror:
+    X: 853
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
+  Gate:
+    Name: gate_br
+  Player:
+    X: 1080
+    Y: 500
+    Color: [ 255, 0, 0, 255 ]
+  Player:
+    X: 227
+    Y: 500
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    X: 653
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0
+    Color: [ 0, 200, 0, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 5
+    Color: [ 255, 255, 255, 255 ]

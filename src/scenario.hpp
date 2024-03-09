@@ -14,6 +14,7 @@ struct Scenario
 {
     Game& game;
     std::vector<PTR<Actor>> actors;
+    bool haltUpdate = false;
 
     // Load a scenario.
     Scenario(Game& game, std::size_t num);

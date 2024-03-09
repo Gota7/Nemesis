@@ -9,8 +9,9 @@ Nemesis::Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> r
     animator(scenario.game.holderTex, "nemesis", FRAME_TIME_DEFAULT),
     path(std::move(path)),
     racerPath(std::move(racerPath)),
-    axis(glm::normalize(axis)),
+    axis((axis.x == 0.0f && axis.y == 0.0f) ? axis : glm::normalize(axis)),
     shootDir(glm::normalize(shootDir)),
+    delay(delay),
     speed(speed),
     color(color),
     type(type)
@@ -139,7 +140,13 @@ void Nemesis::Update(float dt)
         That's why the factor of 3.5 being < 4 is necessary lol.
         Next time when you optimize, actually make sure the math checks out?
     */
-    glm::vec2 dist = toFollow->prevPos - body.pos;
-    if (glm::dot(dist, dist) <= PLAYER_RAD * PLAYER_RAD * 3.5) toFollow->flags |= Flags::FLAGS_SHALL_DIE;
+    if (harmless) return;
+    for (auto& actor : scenario.actors)
+    {
+        Player* player = dynamic_cast<Player*>(actor.get());
+        if (!player) continue;
+        glm::vec2 dist = player->body.prevPos - body.pos;
+        if (glm::dot(dist, dist) <= PLAYER_RAD * PLAYER_RAD * 3.5) player->body.flags |= Flags::FLAGS_SHALL_DIE;
+    }
 
 }

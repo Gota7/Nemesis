@@ -1,5 +1,6 @@
 #pragma once
 
+#include "global.hpp"
 #include <glm/glm.hpp>
 #include <vector>
 
@@ -12,6 +13,12 @@ struct PathFollower
 
     // Make a new path follower.
     PathFollower(const std::vector<glm::vec2>& points, std::size_t currPoint = 0);
+
+    // Copy the path.
+    PTR<PathFollower> Copy()
+    {
+        return PTR_MAKE(PathFollower, points, currPoint);
+    }
 
     // Advance position.
     glm::vec2 Advance(float dist);

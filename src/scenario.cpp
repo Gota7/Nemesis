@@ -225,5 +225,10 @@ void Scenario::Draw()
 
 void Scenario::Update(float dt)
 {
-    for (auto& actor : actors) actor->Update(dt);
+    for (auto& actor : actors)
+    {
+        actor->Update(dt);
+        if (haltUpdate) break;
+    }
+    haltUpdate = false;
 }

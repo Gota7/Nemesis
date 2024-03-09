@@ -19,6 +19,7 @@ struct Switch : Actor
     std::vector<PTR<Wall>> walls;
     std::vector<std::pair<NemesisType, Color>> nemesisTypes;
     std::vector<Body*> playerBodies;
+    std::vector<std::size_t> nemesisToKill;
     glm::vec2 pos;
     glm::vec2 hitbox;
     float timer;

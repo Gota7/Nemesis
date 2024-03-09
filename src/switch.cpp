@@ -48,11 +48,17 @@ void SwitchReset(Switch& sw)
             Nemesis* n = dynamic_cast<Nemesis*>(sw.scenario.actors[currActorInd].get());
             if (!n) continue;
             std::swap(nemesis.first, n->type);
-            std::swap(nemesis.second, n->color);
-            break;
+            n->color.a = 255;
+            n->harmless = false;
         }
         ind++;
     }
+    for (int i = (int)sw.nemesisToKill.size() - 1; i >= 0; i--)
+    {
+        sw.scenario.actors.erase(sw.scenario.actors.begin() + sw.nemesisToKill[i]);
+    }
+    sw.scenario.haltUpdate = true;
+    sw.nemesisToKill.clear();
     Color col;
     for (auto& actor : sw.scenario.actors)
     {
@@ -70,7 +76,6 @@ void SwitchReset(Switch& sw)
 void SwitchActivate(Switch& sw)
 {
     sw.currTime = sw.timer;
-    std::size_t ind = 0;
     std::size_t currActorInd = 0;
     for (auto& nemesis : sw.nemesisTypes)
     {
@@ -78,11 +83,24 @@ void SwitchActivate(Switch& sw)
         {
             Nemesis* n = dynamic_cast<Nemesis*>(sw.scenario.actors[currActorInd].get());
             if (!n) continue;
-            std::swap(nemesis.first, n->type);
-            std::swap(nemesis.second, n->color);
+            sw.nemesisToKill.push_back(sw.scenario.actors.size());
+            sw.scenario.actors.emplace_back(PTR_MAKE(Nemesis,
+                sw.scenario,
+                n->path ? n->path->Copy() : nullptr,
+                n->racerPath ? n->racerPath->Copy() : nullptr,
+                n->body.prevPos,
+                n->axis,
+                n->shootDir,
+                n->delay,
+                n->speed,
+                nemesis.first,
+                nemesis.second
+            ));
+            nemesis.first = n->type;
+            n->color.a = 50;
+            n->harmless = true;
             break;
         }
-        ind++;
     }
     Color col;
     for (auto& actor : sw.scenario.actors)

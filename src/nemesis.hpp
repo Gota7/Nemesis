@@ -30,12 +30,14 @@ struct Nemesis : Actor
     glm::vec2 axis;
     glm::vec2 shootDir;
     glm::vec2 prevPos;
+    float delay;
     float speed;
     std::size_t queueSize;
     std::size_t posInd = 0;
     Color color;
     NemesisType type;
     bool initRun = true;
+    bool harmless = false;
 
     // Make a new nemesis.
     Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> racerPath, const glm::vec2& pos, const glm::vec2& axis, const glm::vec2& shootDir, float delay, float speed, NemesisType type, Color color);
