@@ -1,12 +1,15 @@
 #include "nemesis.hpp"
 
 #include "game.hpp"
+#include "mirror.hpp"
 #include "player.hpp"
+#include "random.hpp"
 #include "scenario.hpp"
 
 Nemesis::Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> racerPath, const glm::vec2& pos, const glm::vec2& axis, const glm::vec2& shootDir, float delay, float fireDelay, float speed, NemesisType type, Color color) :
     scenario(scenario),
     animator(scenario.game.holderTex, "nemesis", FRAME_TIME_DEFAULT),
+    animatorDxD(scenario.game.holderTex, "dxd", FRAME_TIME_DEFAULT),
     path(std::move(path)),
     racerPath(std::move(racerPath)),
     axis((axis.x == 0.0f && axis.y == 0.0f) ? axis : glm::normalize(axis)),
@@ -20,6 +23,26 @@ Nemesis::Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> r
     queueSize = (std::size_t)(delay * FPS) + 1;
     posQueue = PTR_MAKE(glm::vec2[], queueSize);
     body.pos = body.prevPos = pos;
+    glm::vec2 dxdDir = glm::vec2(RandomNum(100, 300) - 200.0f, RandomNum(100, 300) - 200.0f);
+    if (dxdDir.x == 0.0f && dxdDir.y == 0.0f) this->dxdDir = glm::vec2(1.0f, 0.0f);
+    else this->dxdDir = glm::normalize(dxdDir);
+    {
+        PathFollower* path = this->path.get();
+        if (path)
+        {
+            for (std::size_t i = 0; i < path->points.size() - 1; i++)
+                scenario.actors.emplace_back(PTR_MAKE(Mirror, scenario.game.holderTex, path->points[i], path->points[i + 1], Color { color.r, color.g, color.b, 50 }, true));
+            scenario.actors.emplace_back(PTR_MAKE(Mirror, scenario.game.holderTex, path->points[path->points.size() - 1], path->points[0], Color { color.r, color.g, color.b, 50 }, true));
+        }
+    }
+    {
+        PathFollower* path = this->racerPath.get();
+        if (path)
+        {
+            for (std::size_t i = 0; i < path->points.size() - 1; i++)
+                scenario.actors.emplace_back(PTR_MAKE(Mirror, scenario.game.holderTex, path->points[i], path->points[i + 1], Color { color.r, color.g, color.b, 50 }, true));
+        }
+    }
     for (auto& actor : scenario.actors)
     {
         Player* player = dynamic_cast<Player*>(actor.get());
@@ -42,7 +65,8 @@ void Nemesis::Draw()
             DrawTextureEx(animator.textures[animator.currFrame]->tex, VEC_CAST(pos), 22.5f, 0.2f, WHITE);
         }
     }
-    animator.DrawPositioned(body.pos - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) / 2.0f, color);
+    if (type == NemesisType::DxD) animatorDxD.DrawPositioned(body.pos - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) / 2.0f, color);
+    else animator.DrawPositioned(body.pos - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) / 2.0f, color);
 }
 
 void NemesisMirror(Nemesis& nemesis, const glm::vec2& newPos, float dt)
@@ -123,16 +147,47 @@ void NemesisRacer(Nemesis& nemesis, float dt)
 
     // Time to race the player.
     if (!nemesis.racerPath) return;
-    nemesis.body.pos = nemesis.path->Advance(nemesis.speed * dt);
+    nemesis.body.pos = nemesis.racerPath->Advance(nemesis.speed * dt);
     nemesis.body.Move(0.0f); // Update anything needed.
     float width = nemesis.animator.textures[0]->tex.width / 2.0f;
     float height = nemesis.animator.textures[0]->tex.height / 2.0f;
-    if (nemesis.body.pos.x < -width || nemesis.body.pos.x >= RES_WIDTH + width || nemesis.body.pos.y < -height || nemesis.body.pos.y >- RES_HEIGHT + height) nemesis.scenario.game.Reload();
+    if (nemesis.body.pos.x < -width || nemesis.body.pos.x >= RES_WIDTH + width || nemesis.body.pos.y < -height || nemesis.body.pos.y >= RES_HEIGHT + height) nemesis.scenario.game.Reload();
+
+}
+
+void NemesisDxD(Nemesis& nemesis, float dt)
+{
+
+    // Bounce along the walls weeee. Hopefully hits the corner.
+    nemesis.body.vel = nemesis.dxdDir * nemesis.speed;
+    nemesis.body.Move(dt);
+    if (nemesis.body.pos.x < 20.0f)
+    {
+        nemesis.body.pos.x = 20.0f;
+        nemesis.dxdDir.x = -nemesis.dxdDir.x;
+    }
+    else if (nemesis.body.pos.x > 1260.0f)
+    {
+        nemesis.body.pos.x = 1260.0f;
+        nemesis.dxdDir.x = -nemesis.dxdDir.x;
+    }
+    if (nemesis.body.pos.y < 20.0f)
+    {
+        nemesis.body.pos.y = 20.0f;
+        nemesis.dxdDir.y = -nemesis.dxdDir.y;
+    }
+    else if (nemesis.body.pos.y > 700.0f)
+    {
+        nemesis.body.pos.y = 700.0f;
+        nemesis.dxdDir.y = -nemesis.dxdDir.y;
+    }
 
 }
 
 void Nemesis::Update(float dt)
 {
+    animator.Update(dt);
+    animatorDxD.Update(dt);
     if (!toFollow) return;
     if (initRun)
     {
@@ -165,6 +220,9 @@ void Nemesis::Update(float dt)
             break;
         case NemesisType::Racer:
             NemesisRacer(*this, dt);
+            break;
+        case NemesisType::DxD:
+            NemesisDxD(*this, dt);
             break;
         default: // Frozen does nothing, what did you expect?
             break;

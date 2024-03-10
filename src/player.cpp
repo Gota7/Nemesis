@@ -123,16 +123,6 @@ void Player::Draw()
     animator.DrawPositioned(body.pos - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) / 2.0f, color);
 }
 
-// void PlayerColCheck(Player& player, const glm::vec2& pos, int)
-// {
-//     for (auto gate : player.gates)
-//     {
-//         // if (gate->Intersects(pos, PLAYER_RAD)) return true;
-//         gate->
-//     }
-//     // return false;
-// }
-
 void Player::Update(float dt)
 {
     this->dt = dt;
@@ -142,6 +132,10 @@ void Player::Update(float dt)
     body.Move(dt);
     body.blocked = Direction::DIR_NONE;
     jumpTimer = glm::max(0.0f, jumpTimer - dt);
-    if (body.pos.x < -PLAYER_RAD || body.pos.y < -PLAYER_RAD || body.pos.x > RES_WIDTH + PLAYER_RAD || body.pos.y > RES_HEIGHT + PLAYER_RAD) scenario.game.Advance();
+    if (body.pos.x < -PLAYER_RAD || body.pos.y < -PLAYER_RAD || body.pos.x > RES_WIDTH + PLAYER_RAD || body.pos.y > RES_HEIGHT + PLAYER_RAD)
+    {
+        scenario.game.Advance();
+        scenario.haltUpdate = true;
+    }
     else if (body.flags & Flags::FLAGS_SHALL_DIE) scenario.game.Reload();
 }

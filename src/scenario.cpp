@@ -64,6 +64,7 @@ namespace YAML
             else if (name == "Frozen") rhs = NemesisType::Frozen;
             else if (name == "Tank") rhs = NemesisType::Tank;
             else if (name == "Racer") rhs = NemesisType::Racer;
+            else if (name == "DxD") rhs = NemesisType::DxD;
             else return false;
             return true;
         }

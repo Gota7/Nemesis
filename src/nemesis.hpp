@@ -15,6 +15,7 @@ enum class NemesisType
     Frozen,     // Yellow
     Tank,       // Orange
     Racer,      // Purple
+    DxD,        // Grey
 };
 
 // Code for a nemesis that reflects and monitors player movements.
@@ -23,6 +24,7 @@ struct Nemesis : Actor
     Scenario& scenario;
     std::vector<glm::vec2> bullets;
     Animator animator;
+    Animator animatorDxD;
     Body* toFollow;
     Body body;
     PTR<glm::vec2[]> posQueue;
@@ -31,6 +33,7 @@ struct Nemesis : Actor
     glm::vec2 axis;
     glm::vec2 shootDir;
     glm::vec2 prevPos;
+    glm::vec2 dxdDir;
     float fireTimer = 0.0f;
     float delay;
     float fireDelay;

@@ -1,0 +1,58 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Gate:
+    Name: gate_br
+  Player:
+    X: 200
+    Y: 600
+    Color: [ 0, 0, 255, 255 ]
+  Nemesis:
+    X: 640
+    Y: 310
+    Type: DxD
+    Speed: 500
+    Color: [ 177, 177, 177, 255 ]
+  Nemesis:
+    X: 220
+    Y: 310
+    Type: DxD
+    Speed: 500
+    Color: [ 177, 177, 177, 255 ]
+  Nemesis:
+    X: 860
+    Y: 310
+    Type: DxD
+    Speed: 500
+    Color: [ 177, 177, 177, 255 ]
+  Nemesis:
+    X: 420
+    Y: 20
+    ShootDir: [0, 1]
+    Type: Tank
+    FireDelay: 0.75
+    Speed: 500
+    Color: [ 255, 128, 0, 255 ]
+  Nemesis:
+    X: 640
+    Y: 20
+    ShootDir: [0, 1]
+    Type: Tank
+    FireDelay: 0.6
+    Speed: 500
+    Color: [ 255, 128, 0, 255 ]
+  Nemesis:
+    X: 860
+    Y: 20
+    ShootDir: [0, 1]
+    Type: Tank
+    FireDelay: 0.65
+    Speed: 500
+    Color: [ 255, 128, 0, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 21
+    Color: [ 255, 255, 255, 255 ]

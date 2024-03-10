@@ -22,7 +22,7 @@ struct Mirror : Actor
     float rot;
 
     // Create a new mirror.
-    Mirror(AssetHolder<Tex>& holderTex, const glm::vec2& startPos, const glm::vec2& dir, Color color);
+    Mirror(AssetHolder<Tex>& holderTex, const glm::vec2& startPos, const glm::vec2& dir, Color color, bool dirIsEndPos = false);
 
     // Draw the mirror.
     virtual void Draw() override;

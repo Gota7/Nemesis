@@ -4,7 +4,7 @@
 #include "logo.hpp"
 #include "levelSelect.hpp"
 
-#define START_SCENARIO 14
+#define START_SCENARIO 0
 
 Game::Game() : holderTex(), currScenario(PTR_MAKE(Scenario, *this, START_SCENARIO)), currScenarioNum(START_SCENARIO)
 {
