@@ -21,14 +21,15 @@ struct Title : Scene
     Animator ui;
     Animator arrow;
     TitleOption opt;
+    bool darkMode;
 
-    // Make a new logo.
-    Title(Game& game, AssetHolder<Tex>& holderTex);
+    // Make a new title.
+    Title(Game& game, AssetHolder<Tex>& holderTex, bool darkMode = false);
 
-    // Draw logo.
+    // Draw title.
     virtual void Draw() override;
 
-    // Update logo.
+    // Update title.
     virtual void Update(float dt) override;
 
 };

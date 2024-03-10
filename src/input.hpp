@@ -7,18 +7,24 @@ enum class InputButton
 {
     Left,
     Right,
+    Up,
+    Down,
     Jump,
     Run,
-    Mouse
+    Mouse,
+    Pause
 };
 
 inline std::map<InputButton, int> KEYMAP =
 {
     { InputButton::Left, KEY_LEFT },
     { InputButton::Right, KEY_RIGHT },
+    { InputButton::Up, KEY_UP },
+    { InputButton::Down, KEY_DOWN },
     { InputButton::Jump, KEY_Z },
     { InputButton::Run, KEY_X },
     { InputButton::Mouse, MOUSE_LEFT_BUTTON },
+    { InputButton::Pause, KEY_ESCAPE },
 };
 
 // Have to make this bc web is stupid and doesn't work I hate you.

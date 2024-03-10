@@ -1,0 +1,36 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Gate:
+    Name: gate_bl
+  Player:
+    X: 200
+    Y: 100
+    Color: [ 20, 20, 255, 255 ]
+  Switch:
+    Walls:
+      - Pos: 25
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Left
+    X: 950
+    Y: 600
+    WallsAnim: sw_bl
+    Timer: 0
+    FlipWall: false
+    Color: [ 80, 80, 205, 255 ]
+  Nemesis:
+    X: 1260
+    Y: 360
+    Type: Tank
+    ShootDir: [ -16, 4.5 ]
+    FireDelay: 0.75
+    Speed: 200
+    Color: [ 255, 128, 0, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 12
+    Color: [ 255, 255, 255, 255 ]

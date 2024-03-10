@@ -123,6 +123,7 @@ void ScenarioLoadNemesis(Scenario& scn, const YAML::Node& node)
         ScenarioNodeOrDefault(node["Axis"], glm::vec2(0.0f)),
         ScenarioNodeOrDefault(node["ShootDir"], glm::vec2(0.0f)),
         ScenarioNodeOrDefault(node["Delay"], 0.0f),
+        ScenarioNodeOrDefault(node["FireDelay"], 1.0f),
         ScenarioNodeOrDefault(node["Speed"], 0.0f),
         ScenarioNodeOrDefault(node["Type"], NemesisType::Mirror),
         node["Color"].as<Color>()

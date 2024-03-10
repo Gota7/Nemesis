@@ -1,8 +1,10 @@
 #include "game.hpp"
 
+#include "input.hpp"
 #include "logo.hpp"
+#include "levelSelect.hpp"
 
-#define START_SCENARIO 9
+#define START_SCENARIO 14
 
 Game::Game() : holderTex(), currScenario(PTR_MAKE(Scenario, *this, START_SCENARIO)), currScenarioNum(START_SCENARIO)
 {
@@ -31,6 +33,7 @@ void Game::Update(float dt)
         currScene->Update(dt);
         return;
     }
+    else if (InputPressed(InputButton::Pause)) currScene = PTR_MAKE(Title, *this, holderTex, true);
     dt = glm::min(dt, 1 / (FPS / 3.0f)); // About the max before problems occur?
     currScenario->Update(dt);
     if (nextScenarioNum)

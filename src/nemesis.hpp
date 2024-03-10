@@ -9,18 +9,19 @@ struct Scenario;
 // Nemesis type.
 enum class NemesisType
 {
-    Mirror,
-    Chase,
-    Path,
-    Frozen,
-    Tank,
-    Racer,
+    Mirror,     // Green
+    Chase,      // Blue
+    Path,       // Red
+    Frozen,     // Yellow
+    Tank,       // Orange
+    Racer,      // Purple
 };
 
 // Code for a nemesis that reflects and monitors player movements.
 struct Nemesis : Actor
 {
     Scenario& scenario;
+    std::vector<glm::vec2> bullets;
     Animator animator;
     Body* toFollow;
     Body body;
@@ -30,7 +31,9 @@ struct Nemesis : Actor
     glm::vec2 axis;
     glm::vec2 shootDir;
     glm::vec2 prevPos;
+    float fireTimer = 0.0f;
     float delay;
+    float fireDelay;
     float speed;
     std::size_t queueSize;
     std::size_t posInd = 0;
@@ -40,7 +43,7 @@ struct Nemesis : Actor
     bool harmless = false;
 
     // Make a new nemesis.
-    Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> racerPath, const glm::vec2& pos, const glm::vec2& axis, const glm::vec2& shootDir, float delay, float speed, NemesisType type, Color color);
+    Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> racerPath, const glm::vec2& pos, const glm::vec2& axis, const glm::vec2& shootDir, float delay, float fireDelay, float speed, NemesisType type, Color color);
 
     // Draw nemesis.
     virtual void Draw() override;

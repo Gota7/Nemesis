@@ -4,14 +4,15 @@
 #include "player.hpp"
 #include "scenario.hpp"
 
-Nemesis::Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> racerPath, const glm::vec2& pos, const glm::vec2& axis, const glm::vec2& shootDir, float delay, float speed, NemesisType type, Color color) :
+Nemesis::Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> racerPath, const glm::vec2& pos, const glm::vec2& axis, const glm::vec2& shootDir, float delay, float fireDelay, float speed, NemesisType type, Color color) :
     scenario(scenario),
     animator(scenario.game.holderTex, "nemesis", FRAME_TIME_DEFAULT),
     path(std::move(path)),
     racerPath(std::move(racerPath)),
     axis((axis.x == 0.0f && axis.y == 0.0f) ? axis : glm::normalize(axis)),
-    shootDir(glm::normalize(shootDir)),
+    shootDir((shootDir.x == 0.0f && shootDir.y == 0.0f) ? shootDir : glm::normalize(shootDir)),
     delay(delay),
+    fireDelay(fireDelay),
     speed(speed),
     color(color),
     type(type)
@@ -33,6 +34,14 @@ Nemesis::Nemesis(Scenario& scenario, PTR<PathFollower> path, PTR<PathFollower> r
 
 void Nemesis::Draw()
 {
+    if (type == NemesisType::Tank)
+    {
+        for (auto& bullet : bullets)
+        {
+            glm::vec2 pos = bullet - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) * 0.2f / 2.0f;
+            DrawTextureEx(animator.textures[animator.currFrame]->tex, VEC_CAST(pos), 22.5f, 0.2f, WHITE);
+        }
+    }
     animator.DrawPositioned(body.pos - glm::vec2(animator.textures[0]->tex.width, animator.textures[0]->tex.height) / 2.0f, color);
 }
 
@@ -70,12 +79,42 @@ void NemesisPath(Nemesis& nemesis, float dt)
 
 }
 
-void NemesisTank(Nemesis& nemesis, const glm::vec2&, float)
+void NemesisTank(Nemesis& nemesis, const glm::vec2& newPos, float dt)
 {
 
     // Shoot at the player.
-    if (nemesis.shootDir == glm::vec2(0.0f)) do {} while (0); // TODO: SPAWN BULLET!!!
-    assert(false);
+    glm::vec2 shootDir = nemesis.shootDir;
+    if (nemesis.shootDir == glm::vec2(0.0f)) shootDir = glm::normalize(newPos - nemesis.body.prevPos);
+    for (auto& bullet : nemesis.bullets)
+    {
+        bullet += shootDir * nemesis.speed * dt;
+    }
+    nemesis.fireTimer += dt;
+    while (nemesis.fireTimer > nemesis.fireDelay)
+    {
+        nemesis.fireTimer -= nemesis.fireDelay;
+        nemesis.bullets.emplace_back(nemesis.body.prevPos);
+    }
+    for (int i = (int)nemesis.bullets.size() - 1; i >= 0; i--)
+    {
+        glm::vec2& pos = nemesis.bullets[i];
+        if (pos.x < 0.0f || pos.x >= RES_WIDTH || pos.y < 0.0f || pos.y >= RES_HEIGHT) nemesis.bullets.erase(nemesis.bullets.begin() + i);
+    }
+    if (nemesis.harmless) return;
+    for (auto& actor : nemesis.scenario.actors)
+    {
+        Player* player = dynamic_cast<Player*>(actor.get());
+        if (!player) continue;
+        for (auto& bullet : nemesis.bullets)
+        {
+            glm::vec2 dist = player->body.prevPos - bullet;
+            if (glm::length(dist) <= PLAYER_RAD)
+            {
+                player->body.flags |= Flags::FLAGS_SHALL_DIE;
+                return;
+            }
+        }
+    }
 
 }
 

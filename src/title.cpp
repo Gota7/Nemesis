@@ -2,6 +2,7 @@
 
 #include "game.hpp"
 #include "input.hpp"
+#include "levelSelect.hpp"
 
 #define TITLE_UI_Y 218.0f
 #define TITLE_UI_HEIGHT 174.0f
@@ -14,11 +15,19 @@
 #define TITLE_UI_LEVEL_SELECT_ARROW_OFF (TITLE_UI_START_X + TITLE_UI_PLAY_WIDTH + TITLE_UI_LEVEL_SELECT_WIDTH / 2.0f - 5.0f)
 #define TITLE_UI_EXIT_ARROW_OFF (TITLE_UI_START_X + TITLE_UI_PLAY_WIDTH + TITLE_UI_LEVEL_SELECT_WIDTH + TITLE_UI_EXIT_WIDTH / 2.0f - 25.0f)
 
-Title::Title(Game& game, AssetHolder<Tex>& holderTex) : Scene(game), bg(holderTex, "bg_title", FRAME_TIME_DEFAULT), ui(holderTex, "ui_title", FRAME_TIME_DEFAULT), arrow(holderTex, "arrow", FRAME_TIME_DEFAULT) {}
+Title::Title(Game& game, AssetHolder<Tex>& holderTex, bool darkMode) :
+    Scene(game),
+    bg(holderTex, "bg_title", FRAME_TIME_DEFAULT),
+    ui(holderTex, "ui_title", FRAME_TIME_DEFAULT),
+    arrow(holderTex, "arrow", FRAME_TIME_DEFAULT),
+    darkMode(darkMode)
+{}
 
 void Title::Draw()
 {
-    bg.Draw();
+    if (darkMode) game.currScenario->Draw();
+    if (darkMode) DrawRectangle(0, 0, RES_WIDTH, RES_HEIGHT, { 0, 0, 0, 150 });
+    else bg.Draw();
     ui.Draw();
     float arrowHalfWidth = arrow.textures[0]->tex.width / 2.0f;
     switch (opt)
@@ -56,6 +65,11 @@ void Title::Update(float dt)
         if (newOpt >= TitleOption::TITLE_OPT_COUNT) newOpt = TitleOption::TITLE_OPT_PLAY;
         opt = (TitleOption)newOpt;
     }
+    if (darkMode && InputPressed(InputButton::Pause))
+    {
+        Kill();
+        return;
+    }
 
     // Mouse.
     static float prevMouseX = 0.0f;
@@ -92,13 +106,18 @@ void Title::Update(float dt)
         switch (opt)
         {
             case TitleOption::TITLE_OPT_PLAY:
+                game.Reload();
                 Kill();
                 break;
             case TitleOption::TITLE_OPT_LEVEL_SELECT:
-                game.currScene = nullptr; // TODO!!!
+                game.currScene = PTR_MAKE(LevelSelect, game, game.holderTex);
                 break;
             case TitleOption::TITLE_OPT_EXIT:
+            #ifdef PLATFORM_WEB
+                OpenURL("https://en.wikipedia.org/wiki/No_Exit_(disambiguation)");
+            #else
                 exit(0);
+            #endif
                 break;
             default:
                 break;

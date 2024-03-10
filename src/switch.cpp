@@ -77,7 +77,6 @@ void SwitchActivate(Switch& sw)
 {
     sw.currTime = sw.timer;
     std::size_t currActorInd = 0;
-    DBG_PRINT(sw.scenario.actors.size());
     for (auto& nemesis : sw.nemesisTypes)
     {
         for (;currActorInd < sw.scenario.actors.size(); currActorInd++)
@@ -93,6 +92,7 @@ void SwitchActivate(Switch& sw)
                 n->axis,
                 n->shootDir,
                 n->delay,
+                n->fireDelay,
                 n->speed,
                 nemesis.first,
                 nemesis.second
