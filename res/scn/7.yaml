@@ -1,0 +1,61 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Gate:
+    Name: gate_br
+  Player:
+    X: 200
+    Y: 500
+    Color: [ 255, 20, 255, 255 ]
+  Nemesis:
+    X: 1060
+    Y: 500
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 1080
+    Y: 250
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 400
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 500
+    Y: 300
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 400
+    Y: 200
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 700
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 800
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 900
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 1000
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 7
+    Color: [ 255, 255, 255, 255 ]

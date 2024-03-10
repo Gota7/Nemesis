@@ -12,6 +12,7 @@
 #define WIDTH_DONT_CARE 100.0f
 
 #define GATE_BR_HEIGHT 525.0f
+#define GATE_TR_HEIGHT 183.0f
 
 Gate::Gate(Scenario& scenario, const std::string& type) : animator(scenario.game.holderTex, type, FRAME_TIME_DEFAULT)
 {
@@ -28,6 +29,14 @@ Gate::Gate(Scenario& scenario, const std::string& type) : animator(scenario.game
         scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, WALL_LEFT_DEFAULT, 0.0f, RES_HEIGHT, Direction::DIR_LEFT));
         scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, WALL_RIGHT_DEFAULT, 0.0f, GATE_BR_HEIGHT, Direction::DIR_RIGHT));
         scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, GATE_BR_HEIGHT + 1.0f, WALL_RIGHT_DEFAULT, WALL_RIGHT_DEFAULT + WIDTH_DONT_CARE, Direction::DIR_UP));
+        scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, CIEL_DEFAULT, 0.0f, RES_WIDTH, Direction::DIR_UP));
+        scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, FLOOR_DEFAULT, 0.0f, RES_WIDTH, Direction::DIR_DOWN));
+    }
+    else if (type == "gate_tl")
+    {
+        scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, WALL_LEFT_DEFAULT, GATE_TR_HEIGHT, RES_HEIGHT, Direction::DIR_LEFT));
+        scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, WALL_RIGHT_DEFAULT, 0.0f, RES_HEIGHT, Direction::DIR_RIGHT));
+        scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, GATE_TR_HEIGHT - 1.0f, WALL_LEFT_DEFAULT - WIDTH_DONT_CARE, WALL_LEFT_DEFAULT, Direction::DIR_DOWN));
         scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, CIEL_DEFAULT, 0.0f, RES_WIDTH, Direction::DIR_UP));
         scenario.actors.emplace_back(PTR_MAKE(Wall, scenario, FLOOR_DEFAULT, 0.0f, RES_WIDTH, Direction::DIR_DOWN));
     }

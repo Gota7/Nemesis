@@ -77,6 +77,7 @@ void SwitchActivate(Switch& sw)
 {
     sw.currTime = sw.timer;
     std::size_t currActorInd = 0;
+    DBG_PRINT(sw.scenario.actors.size());
     for (auto& nemesis : sw.nemesisTypes)
     {
         for (;currActorInd < sw.scenario.actors.size(); currActorInd++)
@@ -99,6 +100,7 @@ void SwitchActivate(Switch& sw)
             nemesis.first = n->type;
             n->color.a = 50;
             n->harmless = true;
+            currActorInd++;
             break;
         }
     }
@@ -114,6 +116,7 @@ void SwitchActivate(Switch& sw)
     }
     sw.color = sw.numbers.color = col;
     sw.active = true;
+    sw.scenario.haltUpdate = true;
 }
 
 void Switch::Update(float dt)
