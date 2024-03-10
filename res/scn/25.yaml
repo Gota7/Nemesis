@@ -1,0 +1,39 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Gate:
+    Name: gate_tl
+  Player:
+    X: 200
+    Y: 500
+    Color: [ 255, 128, 0, 255 ]
+  Player:
+    X: 1000
+    Y: 500
+    Color: [ 255, 128, 0, 255 ]
+  Nemesis:
+    X: 600
+    Y: 20
+    Type: Chase
+    Speed: 250
+    Delay: .1
+    Color: [ 20, 20, 255, 255 ]
+  Switch:
+    Walls:
+      - Pos: 430
+        LeftTopLimit: 290
+        RightBottomLimit: 1000
+        Direction: Down
+    X: 850
+    Y: 600
+    WallsAnim: sw_plat_middle
+    Timer: 0
+    FlipWall: true
+    Color: [ 220, 128, 50, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 25
+    Color: [ 255, 255, 255, 255 ]
