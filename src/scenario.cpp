@@ -1,6 +1,7 @@
 #include "scenario.hpp"
 
 #include "animator.hpp"
+#include "credits.hpp"
 #include "game.hpp"
 #include "gate.hpp"
 #include "mirror.hpp"
@@ -80,6 +81,13 @@ void ScenarioLoadAnimator(Scenario& scn, const YAML::Node& node)
         node["Name"].as<std::string>(),
         node["Time"].as<float>(),
         node["Lerp"].as<bool>()
+    ));
+}
+
+void ScenarioLoadCredits(Scenario& scn, const YAML::Node&)
+{
+    scn.actors.push_back(PTR_MAKE(CreditsLauncher,
+        scn
     ));
 }
 
@@ -198,6 +206,7 @@ void ScenarioLoadSwitch(Scenario& scn, const YAML::Node& node)
 std::map<std::string, ScenarioLoadFunc> ACTOR_LOAD_FUNCS =
 {
     { "Animator", ScenarioLoadAnimator },
+    { "Credits", ScenarioLoadCredits },
     { "Gate", ScenarioLoadGate },
     { "Mirror", ScenarioLoadMirror },
     { "Nemesis", ScenarioLoadNemesis },

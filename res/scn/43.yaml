@@ -1,0 +1,75 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Gate:
+    Name: gate_br
+  Player:
+    X: 1100
+    Y: 100
+    Color: [ 20, 20, 255, 255 ]
+  Player:
+    X: 900
+    Y: 100
+    Color: [ 20, 20, 255, 255 ]
+  Player:
+    X: 1000
+    Y: 100
+    Color: [ 20, 20, 255, 255 ]
+  Nemesis:
+    X: 1250
+    Y: 360
+    Type: Tank
+    ShootDir: [ 0, 0 ]
+    FireDelay: 0.8
+    Delay: 0.75
+    Speed: 700
+    Color: [ 255, 128, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 100
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 200
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 300
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 400
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 500
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 1255
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Right
+    X: 120
+    Y: 480
+    WallsAnim: sw_br
+    Timer: 0
+    FlipWall: false
+    Color: [ 20, 20, 255, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 42
+    Color: [ 255, 255, 255, 255 ]

@@ -5,7 +5,7 @@
 #include "levelSelect.hpp"
 
 #ifdef DEBUG
-    #define START_SCENARIO 39
+    #define START_SCENARIO 50
 #else
     #define START_SCENARIO 0
 #endif

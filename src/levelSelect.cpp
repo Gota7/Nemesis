@@ -131,7 +131,7 @@ void LevelSelect::Update(float dt)
         if (opt == LevelSelectOption::LEVEL_SELECT_OPT_TENS_UP || opt == LevelSelectOption::LEVEL_SELECT_OPT_TENS_DOWN)
         {
             numbersTens.num++;
-            numbersTens.num %= 10;
+            numbersTens.num %= 5;
         }
         else if (opt == LevelSelectOption::LEVEL_SELECT_OPT_ONES_UP || opt == LevelSelectOption::LEVEL_SELECT_OPT_ONES_DOWN)
         {
@@ -144,7 +144,7 @@ void LevelSelect::Update(float dt)
         if (opt == LevelSelectOption::LEVEL_SELECT_OPT_TENS_UP || opt == LevelSelectOption::LEVEL_SELECT_OPT_TENS_DOWN)
         {
             if (numbersTens.num > 0) numbersTens.num--;
-            else numbersTens.num = 9;
+            else numbersTens.num = 4;
         }
         else if (opt == LevelSelectOption::LEVEL_SELECT_OPT_ONES_UP || opt == LevelSelectOption::LEVEL_SELECT_OPT_ONES_DOWN)
         {
@@ -158,11 +158,11 @@ void LevelSelect::Update(float dt)
         {
             case LevelSelectOption::LEVEL_SELECT_OPT_TENS_UP:
                 numbersTens.num++;
-                numbersTens.num %= 10;
+                numbersTens.num %= 5;
                 break;
             case LevelSelectOption::LEVEL_SELECT_OPT_TENS_DOWN:
                 if (numbersTens.num > 0) numbersTens.num--;
-                else numbersTens.num = 9;
+                else numbersTens.num = 4;
                 break;
             case LevelSelectOption::LEVEL_SELECT_OPT_ONES_UP:
                 numbersOnes.num++;

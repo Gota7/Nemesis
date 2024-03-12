@@ -1,0 +1,93 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Mirror:
+    X: 640
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
+  Gate:
+    Name: gate_br
+  Player:
+    X: 200
+    Y: 500
+    Color: [ 0, 0, 0, 255 ]
+  Player:
+    X: 700
+    Y: 500
+    Color: [ 0, 0, 0, 255 ]
+  Nemesis:
+    X: 1080
+    Y: 300
+    Type: Tank
+    Delay: 0.5
+    Speed: 500
+    Color: [ 255, 128, 0, 255 ]
+  Nemesis:
+    X: 440
+    Y: 100
+    Type: DxD
+    Delay: 0.5
+    Speed: 100
+    Color: [ 200, 200, 200, 255 ]
+  Nemesis:
+    X: 700
+    Y: 0
+    Type: Chase
+    Delay: 0.5
+    Speed: 125
+    Color: [ 0, 0, 255, 255 ]
+  Nemesis:
+    X: 300
+    Y: 400
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    RacerPath:
+      Points:
+        - [ 1165, 175 ]
+        - [ 1165, 625 ]
+        - [ 1500, 625 ]
+    X: 700
+    Y: 0
+    Type: Racer
+    Delay: 0.5
+    Speed: 35
+    Color: [ 255, 0, 255, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 25, 175 ]
+        - [ 1165, 175 ]
+    X: 1150
+    Y: 625
+    Type: Path
+    Speed: 100
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    X: 1080
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.5
+    Color: [ 0, 255, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 1255
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Right
+    X: 200
+    Y: 500
+    WallsAnim: sw_br
+    Timer: 7
+    FlipWall: true
+    Color: [ 255, 255, 255, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 48
+    Color: [ 255, 255, 255, 255 ]

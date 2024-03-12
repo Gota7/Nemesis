@@ -1,0 +1,109 @@
+Actors:
+  Player:
+    X: 625
+    Y: 100
+    Color: [ 255, 255, 255, 255 ]
+  Nemesis:
+    X: 0
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 100
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 200
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 300
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 400
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 500
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 600
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 700
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 800
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 900
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 1000
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 1100
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 1200
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 1300
+    Y: 700
+    Type: Frozen
+    Delay: 0.5
+    Speed: 100
+    Color: [ 255, 255, 0, 255 ]
+  Credits:
+  Number:
+    X: 1130
+    Y: 50
+    Num: 7777777
+    Color: [ 255, 255, 255, 255 ]

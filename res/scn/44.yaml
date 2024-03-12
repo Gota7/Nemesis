@@ -1,0 +1,50 @@
+Actors:
+  Animator:
+    Name: bg_sunset_falls
+    Time: 100
+    Lerp: false
+  Gate:
+    Name: gate_br
+  Player:
+    X: 200
+    Y: 100
+    Color: [ 0, 255, 0, 255 ]
+  Player:
+    X: 400
+    Y: 100
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 25, 0 ]
+        - [ 25, 720 ]
+    X: 1150
+    Y: 625
+    Type: Path
+    Speed: 5000
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 1265, 0 ]
+        - [ 1265, 480 ]
+    X: 1150
+    Y: 625
+    Type: Path
+    Speed: 5000
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 250, 625 ]
+        - [ 1150, 625 ]
+    X: 1150
+    Y: 625
+    Type: Path
+    Speed: 700
+    Color: [ 255, 0, 0, 255 ]
+  Number:
+    X: 1130
+    Y: 50
+    Num: 44
+    Color: [ 255, 255, 255, 255 ]
