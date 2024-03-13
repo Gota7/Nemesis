@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_lost_media
     Time: 100
     Lerp: false
   Gate:
@@ -34,7 +34,7 @@ Actors:
     Type: Tank
     FireDelay: 0.75
     Speed: 500
-    Color: [ 255, 128, 0, 255 ]
+    Color: [ 252, 146, 70, 255 ]
   Nemesis:
     X: 640
     Y: 20
@@ -50,7 +50,7 @@ Actors:
     Type: Tank
     FireDelay: 0.65
     Speed: 500
-    Color: [ 255, 128, 0, 255 ]
+    Color: [ 239, 157, 4, 255 ]
   Number:
     X: 1130
     Y: 50

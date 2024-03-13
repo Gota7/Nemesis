@@ -5,7 +5,7 @@
 
 Switch::Switch(Scenario& scenario, std::vector<PTR<Wall>>&& walls, const std::vector<std::pair<NemesisType, Color>>& nemesisTypes, const glm::vec2& pos, const std::optional<std::string>& wallsAnimName, float timer, bool flipWall, Color color) :
     scenario(scenario),
-    animator(scenario.game.holderTex, "blob", FRAME_TIME_DEFAULT),
+    animator(scenario.game.holderTex, "sw", FRAME_TIME_DEFAULT),
     numbers(scenario.game.holderTex, glm::vec2(0.0f), 0, color),
     wallsAnim(wallsAnimName ? PTR_MAKE(Animator, scenario.game.holderTex, *wallsAnimName, FRAME_TIME_DEFAULT) : nullptr),
     walls(std::move(walls)),

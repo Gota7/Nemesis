@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_lone_sparkle
     Time: 100
     Lerp: false
   Mirror:
@@ -19,13 +19,13 @@ Actors:
     Y: 620
     Speed: 200
     Type: Chase
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 166, 213, 252, 255 ]
   Nemesis:
     X: 960
     Y: 620
     Speed: 200
     Type: Chase
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 166, 176, 252, 255 ]
   Nemesis:
     X: 640
     Y: 620
@@ -40,7 +40,7 @@ Actors:
         Direction: Down
     NemesisTypes:
       - Type: Tank
-        Color: [ 255, 128, 0, 255 ]
+        Color: [ 252, 188, 70, 255 ]
       - Type: Tank
         Color: [ 255, 128, 0, 255 ]
     X: 100
@@ -48,10 +48,10 @@ Actors:
     WallsAnim: sw_div_mid_top
     Timer: 0
     FlipWall: false
-    Color: [ 255, 128, 0, 255 ]
+    Color: [ 0, 0, 255, 255 ]
   Switch:
     Walls:
-      - Pos: 475
+      - Pos: 480
         LeftTopLimit: 0
         RightBottomLimit: 1280
         Direction: Down
@@ -60,7 +60,7 @@ Actors:
     WallsAnim: sw_div_mid_bottom
     Timer: 0
     FlipWall: false
-    Color: [ 255, 128, 0, 255 ]
+    Color: [ 11, 188, 224, 255 ]
   Switch:
     Walls:
       - Pos: 25
@@ -72,7 +72,7 @@ Actors:
     WallsAnim: sw_bl
     Timer: 4.1
     FlipWall: false
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 3, 35, 76, 255 ]
   Number:
     X: 1130
     Y: 50

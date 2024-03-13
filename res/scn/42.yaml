@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_blackhole
     Time: 100
     Lerp: false
   Mirror:
@@ -37,13 +37,13 @@ Actors:
     Axis: [ 1, 0 ]
     Delay: 0.5
     Speed: 1000
-    Color: [ 0, 255, 0, 255 ]
+    Color: [ 173, 252, 30, 255 ]
   Nemesis:
     X: 1730
     Y: 500
     Axis: [ 1, 0 ]
     Delay: 0.5
-    Color: [ 0, 255, 0, 255 ]
+    Color: [ 116, 252, 70, 255 ]
   Switch:
     Walls:
       - Pos: 1255
@@ -54,7 +54,7 @@ Actors:
       - Type: Chase
         Color: [ 0, 0, 255, 255 ]
       - Type: Chase
-        Color: [ 0, 0, 255, 255 ]
+        Color: [ 70, 164, 252, 255 ]
     X: 620
     Y: 480
     WallsAnim: sw_br

@@ -6,7 +6,7 @@ Actors:
   Gate:
     Name: gate_bl
   Animator:
-    Name: controls
+    Name: controls_labeled
     Time: 0.15
     Lerp: false
   Player:
@@ -20,7 +20,7 @@ Actors:
         RightBottomLimit: 1000
         Direction: Down
     X: 1150
-    Y: 600
+    Y: 500
     WallsAnim: sw_plat_middle
     Timer: 0
     FlipWall: true
@@ -34,7 +34,7 @@ Actors:
     X: 1050
     Y: 100
     WallsAnim: sw_bl
-    Timer: 4.1
+    Timer: 4.6
     FlipWall: false
     Color: [ 255, 255, 0, 255 ]
   Number:

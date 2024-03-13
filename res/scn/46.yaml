@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_horror_light
     Time: 100
     Lerp: false
   Mirror:

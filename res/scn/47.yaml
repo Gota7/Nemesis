@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_empty_space
     Time: 100
     Lerp: false
   Mirror:
@@ -22,13 +22,13 @@ Actors:
         Direction: Down
     NemesisTypes:
       - Type: Mirror
-        Color: [ 20, 20, 255, 255 ]
+        Color: [ 20, 255, 20, 255 ]
     X: 600
     Y: 600
     WallsAnim: sw_plat_middle
     Timer: 0
     FlipWall: true
-    Color: [ 255, 128, 0, 255 ]
+    Color: [ 255, 49, 30, 255 ]
   Switch:
     Walls:
       - Pos: 25
@@ -37,13 +37,13 @@ Actors:
         Direction: Left
     NemesisTypes:
       - Type: Chase
-        Color: [ 255, 20, 255, 255 ]
+        Color: [ 20, 20, 255, 255 ]
     X: 1050
     Y: 100
     WallsAnim: sw_tl
     Timer: 7.1
     FlipWall: false
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 255, 128, 0, 255 ]
   Nemesis:
     X: 200
     Y: 220

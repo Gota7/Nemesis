@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_ghosts
     Time: 100
     Lerp: false
   Gate:
@@ -14,11 +14,9 @@ Actors:
       - Type: Chase
         Color: [ 20, 20, 255, 255 ]
       - Type: Chase
-        Color: [ 20, 20, 255, 255 ]
+        Color: [ 4, 75, 255, 255 ]
       - Type: Chase
-        Color: [ 20, 20, 255, 255 ]
-      - Type: Chase
-        Color: [ 20, 20, 255, 255 ]
+        Color: [ 33, 221, 221, 255 ]
     X: 1050
     Y: 300
     Timer: 7.8
@@ -33,15 +31,15 @@ Actors:
   Nemesis:
     X: 400
     Y: 620
-    Speed: 200
+    Speed: 190
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 252, 230, 65, 255 ]
   Nemesis:
     X: 1250
     Y: 620
     Speed: 50
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 229, 199, 64, 255 ]
   Number:
     X: 1130
     Y: 50

@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_ocean_slump
     Time: 100
     Lerp: false
   Gate:
@@ -20,7 +20,7 @@ Actors:
     Y: 320
     Speed: 500
     Type: Tank
-    Color: [ 255, 128, 0, 255 ]
+    Color: [ 216, 152, 41, 255 ]
   Nemesis:
     X: 320
     Y: 320
@@ -32,13 +32,13 @@ Actors:
     Y: 220
     Speed: 200
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 252, 230, 65, 255 ]
   Nemesis:
     X: 750
     Y: 620
     Speed: 200
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 229, 219, 64, 255 ]
   Number:
     X: 1130
     Y: 50

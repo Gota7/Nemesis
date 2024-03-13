@@ -33,12 +33,14 @@ inline std::map<InputButton, bool> BUTTON_WAS_DOWN;
 inline bool InputDown(InputButton button)
 {
     if (button == InputButton::Mouse) return IsMouseButtonDown(KEYMAP[button]);
+    else if (button == InputButton::Pause && IsKeyDown(KEY_ENTER)) return true;
     else return IsKeyDown(KEYMAP[button]);
 }
 
 inline bool InputUp(InputButton button)
 {
     if (button == InputButton::Mouse) return IsMouseButtonUp(KEYMAP[button]);
+    else if (button == InputButton::Pause && IsKeyDown(KEY_ENTER)) return false;
     else return IsKeyUp(KEYMAP[button]);
 }
 

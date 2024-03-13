@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_green_beree
     Time: 100
     Lerp: false
   Gate:
@@ -12,15 +12,15 @@ Actors:
   Player:
     X: 400
     Y: 500
-    Color: [ 255, 40, 255, 255 ]
+    Color: [ 155, 64, 229, 255 ]
   Player:
     X: 600
     Y: 500
-    Color: [ 255, 40, 255, 255 ]
+    Color: [ 215, 64, 229, 255 ]
   Player:
     X: 800
     Y: 500
-    Color: [ 255, 40, 255, 255 ]
+    Color: [ 121, 41, 216, 255 ]
   Nemesis:
     X: 20
     Y: 600

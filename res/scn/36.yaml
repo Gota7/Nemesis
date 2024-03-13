@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_strange_farm
     Time: 100
     Lerp: false
   Gate:
@@ -13,47 +13,47 @@ Actors:
     X: 1060
     Y: 500
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 245, 245, 0, 255 ]
   Nemesis:
     X: 1080
     Y: 250
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 235, 235, 0, 255 ]
   Nemesis:
     X: 400
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 225, 225, 0, 255 ]
   Nemesis:
     X: 500
     Y: 300
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 215, 215, 0, 255 ]
   Nemesis:
     X: 400
     Y: 200
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 205, 205, 0, 255 ]
   Nemesis:
     X: 700
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 195, 195, 0, 255 ]
   Nemesis:
     X: 800
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 185, 185, 0, 255 ]
   Nemesis:
     X: 900
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 175, 175, 0, 255 ]
   Nemesis:
     X: 1000
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 165, 165, 0, 255 ]
   Number:
     X: 1130
     Y: 50
