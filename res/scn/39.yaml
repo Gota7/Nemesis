@@ -6,39 +6,42 @@ Actors:
   Gate:
     Name: gate_br
   Player:
-    X: 200
-    Y: 500
-    Color: [ 0, 255, 0, 255 ]
+    X: 640
+    Y: 100
+    Color: [ 255, 20, 255, 255 ]
+  Switch:
+    NemesisTypes:
+      - Type: Chase
+        Color: [ 20, 20, 255, 255 ]
+      - Type: Chase
+        Color: [ 20, 20, 255, 255 ]
+      - Type: Chase
+        Color: [ 20, 20, 255, 255 ]
+      - Type: Chase
+        Color: [ 20, 20, 255, 255 ]
+    X: 1050
+    Y: 300
+    Timer: 7.8
+    FlipWall: false
+    Color: [ 255, 128, 0, 255 ]
   Nemesis:
-    Path:
-      Points:
-        - [ 400, 625 ]
-        - [ 400, 125 ]
-    X: 1000
-    Y: 600
-    Type: Path
-    Speed: 700
-    Color: [ 255, 0, 0, 255 ]
+    X: 750
+    Y: 220
+    Speed: 200
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
-    Path:
-      Points:
-        - [ 700, 625 ]
-        - [ 700, 125 ]
-    X: 1000
-    Y: 600
-    Type: Path
-    Speed: 900
-    Color: [ 255, 0, 0, 255 ]
+    X: 400
+    Y: 620
+    Speed: 200
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
-    Path:
-      Points:
-        - [ 1000, 625 ]
-        - [ 1000, 125 ]
-    X: 1000
-    Y: 600
-    Type: Path
-    Speed: 1100
-    Color: [ 255, 0, 0, 255 ]
+    X: 1250
+    Y: 620
+    Speed: 50
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Number:
     X: 1130
     Y: 50

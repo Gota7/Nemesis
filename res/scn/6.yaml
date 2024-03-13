@@ -3,54 +3,23 @@ Actors:
     Name: bg_sunset_falls
     Time: 100
     Lerp: false
-  Mirror:
-    X: 0
-    Y: 360
-    Dir: [ 1, 0 ]
-    Color: [ 255, 255, 255, 255 ]
   Gate:
-    Name: gate_tl
+    Name: gate_br
   Player:
     X: 200
     Y: 500
-    Color: [ 255, 0, 0, 255 ]
-  Switch:
-    Walls:
-      - Pos: 430
-        LeftTopLimit: 290
-        RightBottomLimit: 1000
-        Direction: Down
-    NemesisTypes:
-      - Type: Mirror
-        Color: [ 20, 20, 255, 255 ]
-    X: 600
-    Y: 600
-    WallsAnim: sw_plat_middle
-    Timer: 0
-    FlipWall: true
-    Color: [ 255, 128, 0, 255 ]
-  Switch:
-    Walls:
-      - Pos: 25
-        LeftTopLimit: 0
-        RightBottomLimit: 185
-        Direction: Left
-    NemesisTypes:
-      - Type: Chase
-        Color: [ 255, 20, 255, 255 ]
-    X: 1050
-    Y: 100
-    WallsAnim: sw_tl
-    Timer: 7.1
-    FlipWall: false
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 0, 255, 0, 255 ]
   Nemesis:
-    X: 200
-    Y: 220
-    Axis: [ 0, 1 ]
-    Delay: 0.3
-    Speed: 300
-    Color: [ 0, 200, 0, 255 ]
+    Path:
+      Points:
+        - [ 1150, 625 ]
+        - [ 1150, 125 ]
+        - [ 125, 125 ]
+    X: 1000
+    Y: 600
+    Type: Path
+    Speed: 700
+    Color: [ 255, 0, 0, 255 ]
   Number:
     X: 1130
     Y: 50

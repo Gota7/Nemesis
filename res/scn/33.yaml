@@ -6,59 +6,27 @@ Actors:
   Gate:
     Name: gate_br
   Player:
-    X: 200
-    Y: 500
-    Color: [ 0, 255, 0, 255 ]
-  Player:
-    X: 600
-    Y: 500
-    Color: [ 0, 255, 0, 255 ]
-  Nemesis:
-    Path:
-      Points:
-        - [ 637, 625 ]
-        - [ 1150, 125 ]
-        - [ 125, 125 ]
-    X: 1000
-    Y: 600
-    Type: Path
-    Speed: 700
-    Color: [ 255, 0, 0, 255 ]
-  Nemesis:
-    Path:
-      Points:
-        - [ 637, 125 ]
-        - [ 1150, 625 ]
-        - [ 125, 625 ]
-    X: 1000
-    Y: 600
-    Type: Path
-    Speed: 700
-    Color: [ 255, 0, 0, 255 ]
-  Switch:
-    Walls:
-      - Pos: 430
-        LeftTopLimit: 290
-        RightBottomLimit: 1000
-        Direction: Down
-    X: 1150
-    Y: 600
-    WallsAnim: sw_plat_middle
-    Timer: 1
-    FlipWall: false
-    Color: [ 0, 250, 0, 255 ]
-  Switch:
-    Walls:
-      - Pos: 1255
-        LeftTopLimit: 300
-        RightBottomLimit: 800
-        Direction: Right
-    X: 1050
+    X: 640
     Y: 100
-    WallsAnim: sw_br
-    Timer: 4.1
-    FlipWall: false
-    Color: [ 20, 235, 0, 255 ]
+    Color: [ 20, 20, 255, 255 ]
+  Nemesis:
+    X: 120
+    Y: 620
+    Speed: 500
+    Type: Tank
+    Color: [ 255, 128, 0, 255 ]
+  Nemesis:
+    X: 620
+    Y: 320
+    Speed: 200
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 750
+    Y: 320
+    Speed: 200
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Number:
     X: 1130
     Y: 50

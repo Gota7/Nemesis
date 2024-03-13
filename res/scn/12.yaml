@@ -3,32 +3,47 @@ Actors:
     Name: bg_sunset_falls
     Time: 100
     Lerp: false
+  Mirror:
+    X: 0
+    Y: 360
+    Dir: [ 1, 0 ]
+    Color: [ 255, 255, 255, 255 ]
   Gate:
-    Name: gate_bl
+    Name: gate_tr
   Player:
-    X: 200
+    X: 350
     Y: 100
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    X: 350
+    Y: 600
+    Axis: [ 0, 1 ]
+    Delay: 0.5
+    Color: [ 0, 200, 0, 255 ]
   Switch:
     Walls:
-      - Pos: 25
-        LeftTopLimit: 300
-        RightBottomLimit: 800
-        Direction: Left
-    X: 950
-    Y: 600
-    WallsAnim: sw_bl
-    Timer: 0
+      - Pos: 430
+        LeftTopLimit: 290
+        RightBottomLimit: 1000
+        Direction: Down
+    X: 100
+    Y: 100
+    WallsAnim: sw_plat_middle
+    Timer: 1
     FlipWall: false
-    Color: [ 80, 80, 205, 255 ]
-  Nemesis:
-    X: 1260
-    Y: 360
-    Type: Tank
-    ShootDir: [ -16, 4.5 ]
-    FireDelay: 0.75
-    Speed: 200
-    Color: [ 255, 128, 0, 255 ]
+    Color: [ 0, 250, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 1255
+        LeftTopLimit: 0
+        RightBottomLimit: 185
+        Direction: Right
+    X: 1000
+    Y: 600
+    WallsAnim: sw_tr
+    Timer: 4.4
+    FlipWall: false
+    Color: [ 20, 235, 0, 255 ]
   Number:
     X: 1130
     Y: 50

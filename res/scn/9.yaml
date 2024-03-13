@@ -4,73 +4,56 @@ Actors:
     Time: 100
     Lerp: false
   Gate:
-    Name: gate_bl
+    Name: gate_br
   Player:
     X: 200
-    Y: 500
-    Color: [ 255, 128, 0, 255 ]
+    Y: 70
+    Color: [ 255, 20, 255, 255 ]
   Nemesis:
     X: 200
-    Y: 20
-    Type: Chase
-    Speed: 300
-    Color: [ 20, 20, 255, 255 ]
+    Y: 500
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
-    X: -10
-    Y: 220
-    Type: Chase
-    Speed: 200
-    Color: [ 20, 20, 255, 255 ]
+    X: 300
+    Y: 400
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
     X: 400
-    Y: 20
-    Type: Chase
-    Speed: 100
-    Color: [ 20, 20, 255, 255 ]
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
-    X: 600
-    Y: 20
-    Type: Chase
-    Speed: 200
-    Color: [ 20, 20, 255, 255 ]
+    X: 500
+    Y: 300
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 700
+    Y: 400
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
     X: 800
-    Y: 20
-    Type: Chase
-    Delay: 1.5
-    Speed: 325
-    Color: [ 20, 20, 255, 255 ]
+    Y: 400
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 900
+    Y: 400
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
     X: 1000
-    Y: 20
-    Type: Chase
-    Speed: 150
-    Color: [ 20, 20, 255, 255 ]
-  Switch:
-    Walls:
-      - Pos: 25
-        LeftTopLimit: 300
-        RightBottomLimit: 800
-        Direction: Left
-    NemesisTypes:
-      - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
-      - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
-      - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
-      - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
-      - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
-      - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
-    X: 1150
+    Y: 300
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 1050
     Y: 600
-    WallsAnim: sw_bl
-    Timer: 4.6
-    FlipWall: false
-    Color: [ 255, 20, 255, 255 ]
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Number:
     X: 1130
     Y: 50

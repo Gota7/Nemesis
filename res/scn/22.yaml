@@ -4,68 +4,46 @@ Actors:
     Time: 100
     Lerp: false
   Gate:
-    Name: gate_tl
+    Name: gate_br
   Player:
-    X: 1100
-    Y: 600
-    Color: [ 0, 255, 0, 255 ]
-  Switch:
-    Walls:
-      - Pos: 430
-        LeftTopLimit: 290
-        RightBottomLimit: 1000
-        Direction: Down
-    X: 850
-    Y: 600
-    WallsAnim: sw_plat_middle
-    Timer: 0
-    FlipWall: true
-    Color: [ 50, 205, 50, 255 ]
-  Switch:
-    Walls:
-      - Pos: 25
-        LeftTopLimit: 0
-        RightBottomLimit: 185
-        Direction: Left
-    X: 550
-    Y: 100
-    WallsAnim: sw_tl
-    Timer: 0
-    FlipWall: false
-    Color: [ 20, 235, 20, 255 ]
+    X: 200
+    Y: 500
+    Color: [ 100, 100, 100, 255 ]
   Nemesis:
-    Path:
-      Points:
-        - [ 550, 100 ]
-        - [ 550, 600 ]
     X: 1150
-    Y: 100
-    Type: Path
-    Speed: 550
-    Color: [ 255, 0, 0, 255 ]
-  Nemesis:
-    RacerPath:
-      Points:
-        - [ 1150, 100 ]
-        - [ 75, 600 ]
-        - [ 1155, 600 ]
-        - [ -100, 75 ]
-    X: 1150
-    Y: 100
-    Type: Racer
-    Speed: 550
-    Color: [ 128, 0, 255, 255 ]
-  Nemesis:
-    X: 260
-    Y: 310
+    Y: 625
     Type: DxD
-    Speed: 500
+    Speed: 200
     Color: [ 177, 177, 177, 255 ]
   Nemesis:
-    X: 260
-    Y: 310
+    X: 1150
+    Y: 625
     Type: DxD
-    Speed: 500
+    Speed: 400
+    Color: [ 177, 177, 177, 255 ]
+  Nemesis:
+    X: 1150
+    Y: 625
+    Type: DxD
+    Speed: 600
+    Color: [ 177, 177, 177, 255 ]
+  Nemesis:
+    X: 1150
+    Y: 625
+    Type: DxD
+    Speed: 800
+    Color: [ 177, 177, 177, 255 ]
+  Nemesis:
+    X: 1150
+    Y: 625
+    Type: DxD
+    Speed: 1000
+    Color: [ 177, 177, 177, 255 ]
+  Nemesis:
+    X: 1150
+    Y: 625
+    Type: DxD
+    Speed: 1200
     Color: [ 177, 177, 177, 255 ]
   Number:
     X: 1130

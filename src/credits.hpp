@@ -3,7 +3,6 @@
 #include "animator.hpp"
 #include "game.hpp"
 #include "scene.hpp"
-#include "title.hpp"
 
 // Forward declare.
 struct Scenario;
@@ -29,13 +28,12 @@ struct CreditsLauncher : Actor
 struct Credits : Scene
 {
     Animator title;
-    Animator byGota7;
+    Animator by7Games;
     Animator credits;
     Animator thankYou;
-    float timer = 3.0f;
-    float origTimer;
+    float currTime = 0.0f;
     float titleA = 0.0f;
-    float byGota7A = 0.0f;
+    float by7GamesA = 0.0f;
     float creditsA = 0.0f;
     float thankYouA = 0.0f;
 

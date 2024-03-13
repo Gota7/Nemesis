@@ -4,34 +4,70 @@ Actors:
     Time: 100
     Lerp: false
   Gate:
-    Name: gate_bl
+    Name: gate_br
   Player:
-    X: 200
-    Y: 500
-    Color: [ 255, 0, 0, 255 ]
+    X: 1100
+    Y: 100
+    Color: [ 20, 20, 255, 255 ]
+  Player:
+    X: 900
+    Y: 100
+    Color: [ 20, 20, 255, 255 ]
   Player:
     X: 1000
-    Y: 500
+    Y: 100
+    Color: [ 20, 20, 255, 255 ]
+  Nemesis:
+    X: 1250
+    Y: 360
+    Type: Tank
+    ShootDir: [ 0, 0 ]
+    FireDelay: 0.8
+    Delay: 0.75
+    Speed: 700
     Color: [ 255, 128, 0, 255 ]
   Nemesis:
-    X: 600
-    Y: 20
-    Type: Chase
-    Speed: 300
-    Delay: .1
-    Color: [ 20, 20, 255, 255 ]
+    X: 25
+    Y: 100
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 200
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 300
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 400
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 500
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
+  Nemesis:
+    X: 25
+    Y: 600
+    Type: Frozen
+    Color: [ 255, 255, 0, 255 ]
   Switch:
     Walls:
-      - Pos: 25
+      - Pos: 1255
         LeftTopLimit: 300
         RightBottomLimit: 800
-        Direction: Left
-    X: 1150
-    Y: 400
-    WallsAnim: sw_bl
-    Timer: 3.3
+        Direction: Right
+    X: 120
+    Y: 480
+    WallsAnim: sw_br
+    Timer: 0
     FlipWall: false
-    Color: [ 220, 128, 50, 255 ]
+    Color: [ 20, 20, 255, 255 ]
   Number:
     X: 1130
     Y: 50

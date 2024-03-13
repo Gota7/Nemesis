@@ -8,31 +8,57 @@ Actors:
   Player:
     X: 200
     Y: 500
-    Color: [ 255, 40, 255, 255 ]
-  Player:
-    X: 400
-    Y: 500
-    Color: [ 255, 40, 255, 255 ]
+    Color: [ 0, 255, 0, 255 ]
   Player:
     X: 600
     Y: 500
-    Color: [ 255, 40, 255, 255 ]
-  Player:
-    X: 800
-    Y: 500
-    Color: [ 255, 40, 255, 255 ]
+    Color: [ 0, 255, 0, 255 ]
   Nemesis:
-    X: 20
+    Path:
+      Points:
+        - [ 637, 625 ]
+        - [ 1150, 125 ]
+        - [ 125, 125 ]
+    X: 1000
     Y: 600
-    Type: Frozen
-    Speed: 200
-    Color: [ 255, 255, 0, 255 ]
+    Type: Path
+    Speed: 700
+    Color: [ 255, 0, 0, 255 ]
   Nemesis:
-    X: 1200
+    Path:
+      Points:
+        - [ 637, 125 ]
+        - [ 1150, 625 ]
+        - [ 125, 625 ]
+    X: 1000
     Y: 600
-    Type: Chase
-    Speed: 200
-    Color: [ 20, 20, 255, 255 ]
+    Type: Path
+    Speed: 700
+    Color: [ 255, 0, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 430
+        LeftTopLimit: 290
+        RightBottomLimit: 1000
+        Direction: Down
+    X: 1150
+    Y: 600
+    WallsAnim: sw_plat_middle
+    Timer: 1
+    FlipWall: false
+    Color: [ 0, 250, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 1255
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Right
+    X: 1050
+    Y: 100
+    WallsAnim: sw_br
+    Timer: 4.1
+    FlipWall: false
+    Color: [ 20, 235, 0, 255 ]
   Number:
     X: 1130
     Y: 50

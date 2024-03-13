@@ -4,44 +4,38 @@ Actors:
     Time: 100
     Lerp: false
   Gate:
-    Name: gate_br
+    Name: gate_bl
   Player:
-    X: 640
-    Y: 100
-    Color: [ 255, 20, 255, 255 ]
-  Switch:
-    NemesisTypes:
-      - Type: Chase
-        Color: [ 20, 20, 255, 255 ]
-      - Type: Chase
-        Color: [ 20, 20, 255, 255 ]
-      - Type: Chase
-        Color: [ 20, 20, 255, 255 ]
-      - Type: Chase
-        Color: [ 20, 20, 255, 255 ]
-    X: 1050
-    Y: 300
-    Timer: 7.5
-    FlipWall: false
+    X: 1200
+    Y: 600
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    RacerPath:
+      Points:
+        - [ 1265, 25 ]
+        - [ -100, 650 ]
+    X: 1265
+    Y: 25
+    Type: Racer
+    Speed: 150
+    Color: [ 255, 0, 255, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 25, 625 ]
+        - [ 1265, 625 ]
+    X: 1150
+    Y: 625
+    Type: Path
+    Speed: 700
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    X: 250
+    Y: 25
+    Type: Tank
+    Delay: 0.1
+    Speed: 700
     Color: [ 255, 128, 0, 255 ]
-  Nemesis:
-    X: 750
-    Y: 220
-    Speed: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 400
-    Y: 620
-    Speed: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 1250
-    Y: 620
-    Speed: 50
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
   Number:
     X: 1130
     Y: 50

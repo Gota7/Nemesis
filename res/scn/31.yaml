@@ -6,39 +6,48 @@ Actors:
   Gate:
     Name: gate_br
   Player:
-    X: 640
+    X: 1100
     Y: 100
     Color: [ 20, 20, 255, 255 ]
   Nemesis:
-    X: 120
-    Y: 620
-    Speed: 500
+    X: 640
+    Y: 20
     Type: Tank
-    Color: [ 255, 128, 0, 255 ]
-  Nemesis:
-    X: 1120
-    Y: 320
-    Speed: 500
-    Type: Tank
+    ShootDir: [ 0, 0 ]
+    FireDelay: 0.8
+    Delay: 1
+    Speed: 700
     Color: [ 255, 128, 0, 255 ]
   Nemesis:
     X: 320
-    Y: 320
-    Speed: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Y: 20
+    Type: Tank
+    ShootDir: [ 0, 0 ]
+    FireDelay: 0.8
+    Delay: 1
+    Speed: 700
+    Color: [ 255, 128, 0, 255 ]
   Nemesis:
-    X: 750
-    Y: 220
-    Speed: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 750
-    Y: 620
-    Speed: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    X: 960
+    Y: 20
+    Type: Tank
+    ShootDir: [ 0, 0 ]
+    FireDelay: 0.8
+    Delay: 1
+    Speed: 700
+    Color: [ 255, 128, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 1255
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Right
+    X: 120
+    Y: 480
+    WallsAnim: sw_br
+    Timer: 0
+    FlipWall: false
+    Color: [ 20, 20, 255, 255 ]
   Number:
     X: 1130
     Y: 50

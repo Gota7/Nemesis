@@ -7,53 +7,24 @@ Actors:
     Name: gate_br
   Player:
     X: 200
-    Y: 70
-    Color: [ 255, 20, 255, 255 ]
-  Nemesis:
-    X: 200
     Y: 500
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 0, 255, 0, 255 ]
   Nemesis:
-    X: 300
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 400
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 500
-    Y: 300
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 700
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 800
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 900
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 1000
-    Y: 300
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 1050
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Path:
+      Points:
+        - [ 1150, 625 ]
+        - [ 1000, 125 ]
+        - [ 850, 625 ]
+        - [ 700, 125 ]
+        - [ 550, 625 ]
+        - [ 400, 125 ]
+        - [ 250, 625 ]
+        - [ 100, 125 ]
+    X: 1150
+    Y: 625
+    Type: Path
+    Speed: 1500
+    Color: [ 255, 0, 0, 255 ]
   Number:
     X: 1130
     Y: 50

@@ -3,36 +3,41 @@ Actors:
     Name: bg_sunset_falls
     Time: 100
     Lerp: false
-  Gate:
-    Name: gate_bl
-  Player:
+  Mirror:
     X: 640
-    Y: 100
-    Color: [ 20, 20, 255, 255 ]
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
+  Gate:
+    Name: gate_br
+  Player:
+    X: 200
+    Y: 500
+    Color: [ 255, 255, 0, 255 ]
   Nemesis:
-    X: 320
-    Y: 620
-    Speed: 200
-    Type: Tank
-    Color: [ 255, 128, 0, 255 ]
+    RacerPath:
+      Points:
+        - [ 300, 645 ]
+        - [ 1400, 645 ]
+    X: 1000
+    Y: 600
+    Type: Racer
+    Speed: 175
+    Color: [ 255, 0, 255, 255 ]
   Nemesis:
-    X: 960
-    Y: 620
-    Speed: 200
+    X: 1080
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.25
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    X: 1080
+    Y: 500
+    ShootDir: [-1, 1]
     Type: Tank
+    FireDelay: 0.25
+    Speed: 100
     Color: [ 255, 128, 0, 255 ]
-  Switch:
-    Walls:
-      - Pos: 25
-        LeftTopLimit: 300
-        RightBottomLimit: 800
-        Direction: Left
-    X: 1050
-    Y: 300
-    WallsAnim: sw_bl
-    Timer: 8.1
-    FlipWall: false
-    Color: [ 20, 20, 255, 255 ]
   Number:
     X: 1130
     Y: 50

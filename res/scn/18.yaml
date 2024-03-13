@@ -3,48 +3,55 @@ Actors:
     Name: bg_sunset_falls
     Time: 100
     Lerp: false
+  Mirror:
+    X: 640
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
+  Mirror:
+    X: 0
+    Y: 360
+    Dir: [ 1, 0 ]
+    Color: [ 255, 255, 255, 255 ]
   Gate:
     Name: gate_br
   Player:
     X: 200
     Y: 500
-    Color: [ 100, 100, 100, 255 ]
+    Color: [ 255, 0, 0, 255 ]
   Nemesis:
-    X: 1150
-    Y: 625
-    Type: DxD
-    Speed: 200
-    Color: [ 177, 177, 177, 255 ]
+    X: 200
+    Y: 220
+    Axis: [ 0, 1 ]
+    Delay: 0.5
+    FireDelay: 0.25
+    Speed: 300
+    Color: [ 0, 200, 0, 255 ]
   Nemesis:
-    X: 1150
-    Y: 625
-    Type: DxD
-    Speed: 400
-    Color: [ 177, 177, 177, 255 ]
-  Nemesis:
-    X: 1150
-    Y: 625
-    Type: DxD
-    Speed: 600
-    Color: [ 177, 177, 177, 255 ]
-  Nemesis:
-    X: 1150
-    Y: 625
-    Type: DxD
-    Speed: 800
-    Color: [ 177, 177, 177, 255 ]
-  Nemesis:
-    X: 1150
-    Y: 625
-    Type: DxD
-    Speed: 1000
-    Color: [ 177, 177, 177, 255 ]
-  Nemesis:
-    X: 1150
-    Y: 625
-    Type: DxD
-    Speed: 1200
-    Color: [ 177, 177, 177, 255 ]
+    X: 1080
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.25
+    FireDelay: 0.25
+    Speed: 300
+    Color: [ 30, 200, 30, 255 ]
+  Switch:
+    Walls:
+      - Pos: 1255
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Right
+    NemesisTypes:
+      - Type: Tank
+        Color: [ 255, 128, 0, 255 ]
+      - Type: Tank
+        Color: [ 255, 128, 0, 255 ]
+    X: 320
+    Y: 480
+    WallsAnim: sw_br
+    Timer: 4.1
+    FlipWall: false
+    Color: [ 20, 20, 255, 255 ]
   Number:
     X: 1130
     Y: 50

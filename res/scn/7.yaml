@@ -8,52 +8,25 @@ Actors:
   Player:
     X: 200
     Y: 500
-    Color: [ 255, 20, 255, 255 ]
+    Color: [ 0, 255, 0, 255 ]
   Nemesis:
-    X: 1060
-    Y: 500
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 1080
-    Y: 250
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 400
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 500
-    Y: 300
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 400
-    Y: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 700
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 800
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 900
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
+    Path:
+      Points:
+        - [ 1150, 615 ]
+        - [ 1150, 105 ]
+        - [ 400, 645 ]
     X: 1000
     Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Type: Path
+    Speed: 800
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    X: 120
+    Y: 100
+    Delay: 1
+    Type: Chase
+    Speed: 750
+    Color: [ 20, 20, 255, 255 ]
   Number:
     X: 1130
     Y: 50

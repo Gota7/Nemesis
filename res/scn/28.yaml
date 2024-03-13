@@ -12,23 +12,25 @@ Actors:
   Nemesis:
     Path:
       Points:
-        - [ 1150, 615 ]
-        - [ 1150, 105 ]
-        - [ 400, 645 ]
-    X: 1000
-    Y: 600
+        - [ 25, 25 ]
+        - [ 1265, 625 ]
+    X: 1150
+    Y: 625
+    Type: Path
+    Speed: 1000
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 25, 625 ]
+        - [ 1265, 625 ]
+    X: 1150
+    Y: 625
     Type: Path
     Speed: 800
     Color: [ 255, 0, 0, 255 ]
-  Nemesis:
-    X: 120
-    Y: 100
-    Delay: 1
-    Type: Chase
-    Speed: 750
-    Color: [ 20, 20, 255, 255 ]
   Number:
     X: 1130
     Y: 50
-    Num: 19
+    Num: 28
     Color: [ 255, 255, 255, 255 ]

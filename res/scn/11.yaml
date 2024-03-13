@@ -4,59 +4,41 @@ Actors:
     Time: 100
     Lerp: false
   Gate:
-    Name: gate_tl
+    Name: gate_br
   Player:
     X: 200
+    Y: 500
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 400, 625 ]
+        - [ 400, 125 ]
+    X: 1000
     Y: 600
-    Color: [ 20, 20, 255, 255 ]
-  Switch:
-    Walls:
-      - Pos: 430
-        LeftTopLimit: 290
-        RightBottomLimit: 1000
-        Direction: Down
-    X: 850
+    Type: Path
+    Speed: 700
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    Path:
+      Points:
+        - [ 700, 625 ]
+        - [ 700, 125 ]
+    X: 1000
     Y: 600
-    WallsAnim: sw_plat_middle
-    Timer: 0
-    FlipWall: true
-    Color: [ 80, 80, 205, 255 ]
-  Switch:
-    Walls:
-      - Pos: 25
-        LeftTopLimit: 0
-        RightBottomLimit: 185
-        Direction: Left
-    X: 950
-    Y: 100
-    WallsAnim: sw_tl
-    Timer: 7.1
-    FlipWall: false
-    Color: [ 40, 40, 235, 255 ]
+    Type: Path
+    Speed: 900
+    Color: [ 255, 0, 0, 255 ]
   Nemesis:
-    X: 1260
-    Y: 20
-    Type: Tank
-    Axis: [ 0, 1 ]
-    FireDelay: 1.5
-    Speed: 300
-    Color: [ 255, 128, 0, 255 ]
-  Nemesis:
-    X: 20
-    Y: 700
-    Type: Tank
-    Axis: [ 0, 1 ]
-    FireDelay: 1.5
-    Speed: 300
-    Color: [ 255, 128, 0, 255 ]
-  Nemesis:
-    X: 1260
-    Y: 700
-    Type: Tank
-    Axis: [ 0, 1 ]
-    FireDelay: 1.5
-    Speed: 300
-    Color: [ 255, 128, 0, 255 ]
+    Path:
+      Points:
+        - [ 1000, 625 ]
+        - [ 1000, 125 ]
+    X: 1000
+    Y: 600
+    Type: Path
+    Speed: 1100
+    Color: [ 255, 0, 0, 255 ]
   Number:
     X: 1130
     Y: 50

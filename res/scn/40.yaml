@@ -8,72 +8,40 @@ Actors:
   Player:
     X: 200
     Y: 500
-    Color: [ 255, 0, 255, 255 ]
+    Color: [ 255, 0, 0, 255 ]
   Nemesis:
-    RacerPath:
-      Points:
-        - [ 100, 100 ]
-        - [ 100, 600 ]
-        - [ 200, 600 ]
-        - [ 200, 300 ]
-        - [ 1100, 300 ]
-        - [ 1100, 600 ]
-        - [ 1500, 600 ]
+    X: 1080
+    Y: 500
+    Type: Tank
+    Delay: 0.5
+    Speed: 500
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    X: 440
+    Y: 500
+    Type: Tank
+    Delay: 0.5
+    Speed: 1000
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    X: 730
+    Y: 300
+    Type: Tank
+    Speed: 200
+    Delay: 0.5
+    Color: [ 0, 255, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 1255
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Right
     X: 200
-    Y: 100
-    Type: Racer
-    Speed: 225
-    Color: [ 128, 0, 255, 255 ]
-  Nemesis:
-    X: 400
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 400
     Y: 500
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 400
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 300
-    Y: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 700
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 700
-    Y: 500
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 700
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 1000
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 1000
-    Y: 500
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 1000
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    WallsAnim: sw_br
+    Timer: 7
+    FlipWall: true
+    Color: [ 255, 128, 0, 255 ]
   Number:
     X: 1130
     Y: 50

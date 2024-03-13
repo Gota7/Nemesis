@@ -3,51 +3,64 @@ Actors:
     Name: bg_sunset_falls
     Time: 100
     Lerp: false
+  Mirror:
+    X: 320
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
+  Mirror:
+    X: 640
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
+  Mirror:
+    X: 960
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
   Gate:
     Name: gate_br
   Player:
-    X: 1100
-    Y: 100
-    Color: [ 20, 20, 255, 255 ]
+    X: 200
+    Y: 500
+    Color: [ 255, 0, 0, 255 ]
   Nemesis:
-    X: 640
-    Y: 20
-    Type: Tank
-    ShootDir: [ 0, 0 ]
-    FireDelay: 0.8
-    Delay: 1
-    Speed: 700
-    Color: [ 255, 128, 0, 255 ]
+    X: 1080
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.5
+    Speed: 500
+    Color: [ 0, 255, 0, 255 ]
   Nemesis:
-    X: 320
-    Y: 20
-    Type: Tank
-    ShootDir: [ 0, 0 ]
-    FireDelay: 0.8
-    Delay: 1
-    Speed: 700
-    Color: [ 255, 128, 0, 255 ]
+    X: 440
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.5
+    Speed: 1000
+    Color: [ 0, 255, 0, 255 ]
   Nemesis:
-    X: 960
-    Y: 20
-    Type: Tank
-    ShootDir: [ 0, 0 ]
-    FireDelay: 0.8
-    Delay: 1
-    Speed: 700
-    Color: [ 255, 128, 0, 255 ]
+    X: 1730
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.5
+    Color: [ 0, 255, 0, 255 ]
   Switch:
     Walls:
       - Pos: 1255
         LeftTopLimit: 300
         RightBottomLimit: 800
         Direction: Right
-    X: 120
+    NemesisTypes:
+      - Type: Chase
+        Color: [ 0, 0, 255, 255 ]
+      - Type: Chase
+        Color: [ 0, 0, 255, 255 ]
+    X: 620
     Y: 480
     WallsAnim: sw_br
     Timer: 0
     FlipWall: false
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 255, 128, 0, 255 ]
   Number:
     X: 1130
     Y: 50

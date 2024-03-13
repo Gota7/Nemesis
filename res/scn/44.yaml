@@ -3,46 +3,76 @@ Actors:
     Name: bg_sunset_falls
     Time: 100
     Lerp: false
+  Mirror:
+    X: 0
+    Y: 360
+    Dir: [ 1, 0 ]
+    Color: [ 255, 255, 255, 255 ]
   Gate:
-    Name: gate_br
+    Name: gate_bl
   Player:
-    X: 200
+    X: 640
     Y: 100
+    Color: [ 255, 0, 0, 255 ]
+  Nemesis:
+    X: 320
+    Y: 620
+    Speed: 200
+    Type: Chase
+    Color: [ 20, 20, 255, 255 ]
+  Nemesis:
+    X: 960
+    Y: 620
+    Speed: 200
+    Type: Chase
+    Color: [ 20, 20, 255, 255 ]
+  Nemesis:
+    X: 640
+    Y: 620
+    Delay: 1
+    Axis: [0, 1]
     Color: [ 0, 255, 0, 255 ]
-  Player:
-    X: 400
-    Y: 100
-    Color: [ 0, 255, 0, 255 ]
-  Nemesis:
-    Path:
-      Points:
-        - [ 25, 0 ]
-        - [ 25, 720 ]
-    X: 1150
-    Y: 625
-    Type: Path
-    Speed: 5000
-    Color: [ 255, 0, 0, 255 ]
-  Nemesis:
-    Path:
-      Points:
-        - [ 1265, 0 ]
-        - [ 1265, 480 ]
-    X: 1150
-    Y: 625
-    Type: Path
-    Speed: 5000
-    Color: [ 255, 0, 0, 255 ]
-  Nemesis:
-    Path:
-      Points:
-        - [ 250, 625 ]
-        - [ 1150, 625 ]
-    X: 1150
-    Y: 625
-    Type: Path
-    Speed: 700
-    Color: [ 255, 0, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 250
+        LeftTopLimit: 0
+        RightBottomLimit: 1280
+        Direction: Down
+    NemesisTypes:
+      - Type: Tank
+        Color: [ 255, 128, 0, 255 ]
+      - Type: Tank
+        Color: [ 255, 128, 0, 255 ]
+    X: 100
+    Y: 120
+    WallsAnim: sw_div_mid_top
+    Timer: 0
+    FlipWall: false
+    Color: [ 255, 128, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 475
+        LeftTopLimit: 0
+        RightBottomLimit: 1280
+        Direction: Down
+    X: 1100
+    Y: 350
+    WallsAnim: sw_div_mid_bottom
+    Timer: 0
+    FlipWall: false
+    Color: [ 255, 128, 0, 255 ]
+  Switch:
+    Walls:
+      - Pos: 25
+        LeftTopLimit: 300
+        RightBottomLimit: 800
+        Direction: Left
+    X: 1050
+    Y: 600
+    WallsAnim: sw_bl
+    Timer: 4.1
+    FlipWall: false
+    Color: [ 255, 255, 0, 255 ]
   Number:
     X: 1130
     Y: 50

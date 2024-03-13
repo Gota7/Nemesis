@@ -3,73 +3,49 @@ Actors:
     Name: bg_sunset_falls
     Time: 100
     Lerp: false
+  Mirror:
+    X: 640
+    Y: 0
+    Dir: [ 0, 1 ]
+    Color: [ 255, 255, 255, 255 ]
   Gate:
     Name: gate_br
   Player:
-    X: 1100
-    Y: 100
-    Color: [ 20, 20, 255, 255 ]
-  Player:
-    X: 900
-    Y: 100
-    Color: [ 20, 20, 255, 255 ]
-  Player:
-    X: 1000
-    Y: 100
-    Color: [ 20, 20, 255, 255 ]
-  Nemesis:
-    X: 1250
-    Y: 360
-    Type: Tank
-    ShootDir: [ 0, 0 ]
-    FireDelay: 0.8
-    Delay: 0.75
-    Speed: 700
-    Color: [ 255, 128, 0, 255 ]
-  Nemesis:
-    X: 25
-    Y: 100
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 25
-    Y: 200
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 25
-    Y: 300
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 25
-    Y: 400
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
-  Nemesis:
-    X: 25
+    X: 200
     Y: 500
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 255, 0, 0, 255 ]
+  Player:
+    X: 200
+    Y: 100
+    Color: [ 255, 0, 0, 255 ]
   Nemesis:
-    X: 25
-    Y: 600
-    Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    X: 1080
+    Y: 500
+    Axis: [ 1, 0 ]
+    Delay: 0.205
+    Color: [ 0, 255, 0, 255 ]
+  Nemesis:
+    X: 1260
+    Y: 250
+    Type: Tank
+    ShootDir: [-1, 0]
+    FireDelay: 0.2
+    Speed: 300
+    Color: [ 255, 128, 0, 255 ]
   Switch:
     Walls:
-      - Pos: 1255
-        LeftTopLimit: 300
-        RightBottomLimit: 800
-        Direction: Right
-    X: 120
-    Y: 480
-    WallsAnim: sw_br
+      - Pos: 250
+        LeftTopLimit: 0
+        RightBottomLimit: 1280
+        Direction: Down
+    X: 550
+    Y: 95
+    WallsAnim: sw_div_mid_top
     Timer: 0
     FlipWall: false
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 255, 200, 200, 225 ]
   Number:
     X: 1130
     Y: 50
-    Num: 42
+    Num: 43
     Color: [ 255, 255, 255, 255 ]
