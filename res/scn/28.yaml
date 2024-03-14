@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_degree_absolute
     Time: 100
     Lerp: false
   Gate:
@@ -28,7 +28,7 @@ Actors:
     Y: 625
     Type: Path
     Speed: 800
-    Color: [ 255, 0, 0, 255 ]
+    Color: [ 216, 41, 111, 255 ]
   Number:
     X: 1130
     Y: 50

@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_purple_wonder
     Time: 100
     Lerp: false
   Gate:
@@ -12,7 +12,7 @@ Actors:
   Player:
     X: 400
     Y: 100
-    Color: [ 0, 255, 0, 255 ]
+    Color: [ 163, 247, 93, 255 ]
   Nemesis:
     Path:
       Points:
@@ -22,7 +22,7 @@ Actors:
     Y: 625
     Type: Path
     Speed: 5000
-    Color: [ 255, 0, 0, 255 ]
+    Color: [ 216, 41, 41, 255 ]
   Nemesis:
     Path:
       Points:
@@ -32,7 +32,7 @@ Actors:
     Y: 625
     Type: Path
     Speed: 5000
-    Color: [ 255, 0, 0, 255 ]
+    Color: [ 247, 101, 93, 255 ]
   Nemesis:
     Path:
       Points:

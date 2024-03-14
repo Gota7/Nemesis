@@ -38,7 +38,7 @@ Actors:
     Y: 20
     Type: Chase
     Delay: 1.5
-    Speed: 325
+    Speed: 315
     Color: [ 20, 20, 255, 255 ]
   Nemesis:
     X: 1000

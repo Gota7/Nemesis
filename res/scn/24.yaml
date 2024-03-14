@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_rose_bush
     Time: 100
     Lerp: false
   Gate:
@@ -8,11 +8,11 @@ Actors:
   Player:
     X: 1100
     Y: 100
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 93, 104, 247, 255 ]
   Player:
     X: 900
     Y: 100
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 9, 106, 163, 255 ]
   Player:
     X: 1000
     Y: 100
@@ -35,27 +35,27 @@ Actors:
     X: 25
     Y: 200
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 245, 245, 0, 255 ]
   Nemesis:
     X: 25
     Y: 300
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 235, 235, 0, 255 ]
   Nemesis:
     X: 25
     Y: 400
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 225, 225, 0, 255 ]
   Nemesis:
     X: 25
     Y: 500
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 215, 215, 0, 255 ]
   Nemesis:
     X: 25
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 205, 205, 0, 255 ]
   Switch:
     Walls:
       - Pos: 1255
@@ -67,7 +67,7 @@ Actors:
     WallsAnim: sw_br
     Timer: 0
     FlipWall: false
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 93, 234, 247, 255 ]
   Number:
     X: 1130
     Y: 50

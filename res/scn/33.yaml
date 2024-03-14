@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_sunset_showdown
     Time: 100
     Lerp: false
   Gate:
@@ -26,7 +26,7 @@ Actors:
     Y: 320
     Speed: 200
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 216, 193, 41, 255 ]
   Number:
     X: 1130
     Y: 50

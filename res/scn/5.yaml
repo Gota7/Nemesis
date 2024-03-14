@@ -17,7 +17,7 @@ Actors:
     X: 600
     Y: 20
     Type: Chase
-    Speed: 300
+    Speed: 275
     Delay: .1
     Color: [ 20, 20, 255, 255 ]
   Switch:

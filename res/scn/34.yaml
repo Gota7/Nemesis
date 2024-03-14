@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_glacier
     Time: 100
     Lerp: false
   Gate:
@@ -28,47 +28,47 @@ Actors:
     X: 400
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 235, 235, 20, 255 ]
   Nemesis:
     X: 400
     Y: 500
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 235, 235, 10, 255 ]
   Nemesis:
     X: 400
     Y: 400
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 235, 235, 0, 255 ]
   Nemesis:
     X: 300
     Y: 200
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 225, 225, 0, 255 ]
   Nemesis:
     X: 700
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 245, 245, 20, 255 ]
   Nemesis:
     X: 700
     Y: 500
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 245, 245, 10, 255 ]
   Nemesis:
     X: 700
     Y: 400
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 245, 245, 0, 255 ]
   Nemesis:
     X: 1000
     Y: 600
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 255, 255, 20, 255 ]
   Nemesis:
     X: 1000
     Y: 500
     Type: Frozen
-    Color: [ 255, 255, 0, 255 ]
+    Color: [ 255, 255, 10, 255 ]
   Nemesis:
     X: 1000
     Y: 400
@@ -78,4 +78,4 @@ Actors:
     X: 1130
     Y: 50
     Num: 34
-    Color: [ 255, 255, 255, 255 ]
+    Color: [ 150, 150, 255, 255 ]
