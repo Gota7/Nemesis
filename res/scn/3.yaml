@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_mesa
     Time: 100
     Lerp: false
   Mirror:
@@ -30,9 +30,9 @@ Actors:
     Y: 500
     Axis: [ 1, 0 ]
     Delay: 0.25
-    Color: [ 30, 200, 30, 255 ]
+    Color: [ 30, 190, 30, 255 ]
   Number:
     X: 1130
     Y: 50
     Num: 3
-    Color: [ 255, 255, 255, 255 ]
+    Color: [ 25, 25, 25, 255 ]

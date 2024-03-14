@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_stream
     Time: 100
     Lerp: false
   Gate:
@@ -14,38 +14,38 @@ Actors:
     Y: 20
     Type: Chase
     Speed: 300
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 20, 20, 245, 255 ]
   Nemesis:
     X: -10
     Y: 220
     Type: Chase
     Speed: 200
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 20, 20, 235, 255 ]
   Nemesis:
     X: 400
     Y: 20
     Type: Chase
     Speed: 100
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 20, 20, 225, 255 ]
   Nemesis:
     X: 600
     Y: 20
     Type: Chase
     Speed: 200
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 20, 20, 215, 255 ]
   Nemesis:
     X: 800
     Y: 20
     Type: Chase
     Delay: 1.5
     Speed: 315
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 20, 20, 205, 255 ]
   Nemesis:
     X: 1000
     Y: 20
     Type: Chase
     Speed: 150
-    Color: [ 20, 20, 255, 255 ]
+    Color: [ 20, 20, 195, 255 ]
   Switch:
     Walls:
       - Pos: 25
@@ -56,15 +56,15 @@ Actors:
       - Type: Frozen
         Color: [ 255, 255, 0, 255 ]
       - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
+        Color: [ 245, 245, 0, 255 ]
       - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
+        Color: [ 235, 235, 0, 255 ]
       - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
+        Color: [ 225, 225, 0, 255 ]
       - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
+        Color: [ 215, 215, 0, 255 ]
       - Type: Frozen
-        Color: [ 255, 255, 0, 255 ]
+        Color: [ 205, 205, 0, 255 ]
     X: 1150
     Y: 600
     WallsAnim: sw_bl

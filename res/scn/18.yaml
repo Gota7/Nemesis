@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_glow
     Time: 100
     Lerp: false
   Mirror:
@@ -16,7 +16,7 @@ Actors:
   Gate:
     Name: gate_br
   Player:
-    X: 200
+    X: 100
     Y: 500
     Color: [ 255, 0, 0, 255 ]
   Nemesis:
@@ -26,7 +26,7 @@ Actors:
     Delay: 0.5
     FireDelay: 0.25
     Speed: 300
-    Color: [ 0, 200, 0, 255 ]
+    Color: [ 53, 252, 69, 255 ]
   Nemesis:
     X: 1080
     Y: 500
@@ -45,7 +45,7 @@ Actors:
       - Type: Tank
         Color: [ 255, 128, 0, 255 ]
       - Type: Tank
-        Color: [ 255, 128, 0, 255 ]
+        Color: [ 252, 159, 53, 255 ]
     X: 320
     Y: 480
     WallsAnim: sw_br

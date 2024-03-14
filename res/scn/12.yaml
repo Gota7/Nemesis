@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_starry_hill
     Time: 100
     Lerp: false
   Mirror:
@@ -13,7 +13,7 @@ Actors:
   Player:
     X: 350
     Y: 100
-    Color: [ 0, 255, 0, 255 ]
+    Color: [ 255, 0, 0, 255 ]
   Nemesis:
     X: 350
     Y: 600
@@ -31,7 +31,7 @@ Actors:
     WallsAnim: sw_plat_middle
     Timer: 1
     FlipWall: false
-    Color: [ 0, 250, 0, 255 ]
+    Color: [ 252, 69, 53, 255 ]
   Switch:
     Walls:
       - Pos: 1255
@@ -43,7 +43,7 @@ Actors:
     WallsAnim: sw_tr
     Timer: 4.4
     FlipWall: false
-    Color: [ 20, 235, 0, 255 ]
+    Color: [ 170, 22, 3, 255 ]
   Number:
     X: 1130
     Y: 50

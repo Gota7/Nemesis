@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_zebra
     Time: 100
     Lerp: false
   Gate:
@@ -24,4 +24,4 @@ Actors:
     X: 1130
     Y: 50
     Num: 6
-    Color: [ 255, 255, 255, 255 ]
+    Color: [ 12, 12, 12, 255 ]

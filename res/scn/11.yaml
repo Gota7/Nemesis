@@ -1,6 +1,6 @@
 Actors:
   Animator:
-    Name: bg_sunset_falls
+    Name: bg_cheese
     Time: 100
     Lerp: false
   Gate:
@@ -18,7 +18,7 @@ Actors:
     Y: 600
     Type: Path
     Speed: 700
-    Color: [ 255, 0, 0, 255 ]
+    Color: [ 170, 22, 3, 255 ]
   Nemesis:
     Path:
       Points:
@@ -28,7 +28,7 @@ Actors:
     Y: 600
     Type: Path
     Speed: 900
-    Color: [ 255, 0, 0, 255 ]
+    Color: [ 252, 69, 53, 255 ]
   Nemesis:
     Path:
       Points:
